@@ -1,6 +1,12 @@
+const basePath = (() => {
+    const scripts = document.getElementsByTagName('script');
+    const thisScript = scripts[scripts.length - 1];
+    return thisScript.src.split('/').slice(0, -1).join('/');
+})();
+
 const scriptUrls = [
-    'EvanBrosCE/class/main.js',
-    'EvanBrosCE/class/draw.js'
+    `${ basePath }/class/main.js`,
+    `${ basePath }/class/draw.js`,
 ];
 
 loadAllComponents(scriptUrls);
