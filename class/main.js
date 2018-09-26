@@ -18,9 +18,9 @@ class EvanBrosCE {
     el.setAttribute('height', canvas.height)
     
     document.body.append(el)
-    var f = new this;
-    f.ctx.imageSmoothingEnabled = smooth;
-    return f;
+    var evanbros = new this;
+    evanbros.ctx.imageSmoothingEnabled = smooth;
+    return evanbros;
   }
   run(load, update, render){
     var me = this;
