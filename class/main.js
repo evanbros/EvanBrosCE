@@ -5,23 +5,6 @@ class EvanBrosCE {
     this.draw = new Draw(this.ctx, this.startDate, this.saveState, this.restoreState);
     this.assets = [];
   }
-  static init(x=400, y=400, smooth = false, style='background: black') {
-    const canvas = new Canvas;
-    const el = document.createElement('canvas');
-    
-    canvas.setSize(x, y);
-    canvas.setStyle(style);
-    
-    el.setAttribute('id', 'canvas_game');
-    el.setAttribute('style', canvas.style);
-    el.setAttribute('width', canvas.width)
-    el.setAttribute('height', canvas.height)
-    
-    document.body.append(el)
-    var evanbros = new this;
-    evanbros.ctx.imageSmoothingEnabled = smooth;
-    return evanbros;
-  }
   run(load, update, render){
     var me = this;
     var preload = new Promise(function(resolve,reject){
