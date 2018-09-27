@@ -2,8 +2,9 @@ class EvanBrosCE {
   constructor() {
     this.ctx = document.getElementById('canvas_game').getContext("2d");
     this.startDate = new Date();
-    this.draw = new Draw(this.ctx, this.startDate, this.saveState, this.restoreState);
     this.assets = [];
+    this.draw = new Draw(this.ctx, this.startDate, this.saveState, this.restoreState);
+    this.sound = new Sound();
   }
   static init(x=400, y=400, smooth = false, style='background: black') {
     const canvas = {};
@@ -46,6 +47,10 @@ class EvanBrosCE {
     var img = new Image();
     img.src = src;
     this.assets[name] = img;
+  }
+  loadSound(name, src) {
+    var sound = new Audio(src);
+    this.assets[name] = sound;
   }
   saveState() {
     this.ctx.save();

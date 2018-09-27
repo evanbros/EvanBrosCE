@@ -7,6 +7,7 @@ const basePath = (() => {
 const scriptUrls = [
     `${ basePath }/class/main.js`,
     `${ basePath }/class/draw.js`,
+    `${ basePath }/class/sound.js`,
 ];
 
 loadAllComponents(scriptUrls);
