@@ -1,10 +1,10 @@
-const basePath = (() => {
-    const scripts = document.getElementsByTagName('script');
-    const thisScript = scripts[scripts.length - 1];
+var basePath = (() => {
+    var scripts = document.getElementsByTagName('script');
+    var thisScript = scripts[scripts.length - 1];
     return thisScript.src.split('/').slice(0, -1).join('/');
 })();
 
-const scriptUrls = [
+var scriptUrls = [
     `${ basePath }/class/main.js`,
     `${ basePath }/class/draw.js`,
     `${ basePath }/class/sound.js`,
