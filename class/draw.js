@@ -23,11 +23,11 @@ class Draw {
     
     var patternCtx = patternCanvas.getContext('2d');
     patternCtx.imageSmoothingEnabled = false;
-    
     patternCtx.drawImage(src, 0, 0, patternSize.width, patternSize.height);
     this.ctx.fillStyle = this.ctx.createPattern(patternCanvas, repetition);
-    this.ctx.fillRect(coordinates.x, coordinates.y, coordinates.width, coordinates.height);
-    
+    this.ctx.translate(coordinates.x, coordinates.y);
+    this.ctx.fillRect(0, 0, coordinates.width, coordinates.height);
+    this.ctx.translate(-coordinates.x, -coordinates.y);
   }
   setLinearGradient(coordinates, percentsAndColors) {
     this.color = this.ctx.createLinearGradient(coordinates[0][0], coordinates[0][1], coordinates[1][0], coordinates[1][1]);
