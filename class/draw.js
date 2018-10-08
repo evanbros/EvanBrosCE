@@ -16,6 +16,19 @@ class Draw {
   setColor(color) {
     this.color = color;
   }
+  setPattern(src, coordinates, patternSize, repetition) {
+    var patternCanvas = document.createElement('canvas');
+    patternCanvas.width = patternSize.width;
+    patternCanvas.height = patternSize.height;
+    
+    var patternCtx = patternCanvas.getContext('2d');
+    patternCtx.imageSmoothingEnabled = false;
+    
+    patternCtx.drawImage(src, 0, 0, patternSize.width, patternSize.height);
+    this.ctx.fillStyle = this.ctx.createPattern(patternCanvas, repetition);
+    this.ctx.fillRect(coordinates.x, coordinates.y, coordinates.width, coordinates.height);
+    
+  }
   setLinearGradient(coordinates, percentsAndColors) {
     this.color = this.ctx.createLinearGradient(coordinates[0][0], coordinates[0][1], coordinates[1][0], coordinates[1][1]);
     for(var i = 0; i < percentsAndColors.length; i++) {
