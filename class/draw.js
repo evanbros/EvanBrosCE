@@ -16,7 +16,7 @@ class Draw {
   setColor(color) {
     this.color = color;
   }
-  setPattern(src, coordinates, patternSize, repetition) {
+  pattern(src, coordinates, patternSize, repetition) {
     var patternCanvas = document.createElement('canvas');
     patternCanvas.width = patternSize.width;
     patternCanvas.height = patternSize.height;
