@@ -70,7 +70,7 @@ class Draw {
     }
     this.ctx.closePath();
   }
-  arc(coordinates, radius, type, angles, anticlockwise = false) {
+  arc(coordinates, radius, type, angles = {init:0,end:360}, anticlockwise = false) {
     this.ctx.beginPath();
     this.ctx.strokeStyle = this.color;
     this.ctx.fillStyle = this.color;
