@@ -38,4 +38,4 @@ window.onload = () => {
         ce.run(load, update, render);
 ```
 
-It is important that your JS file run inside of a **window.onload** event, this will grant that all the stuff will load before you try to use it.
+It is important that your JS file run inside of a **window.onload** event, this will make sure that all the stuff will load before you try to use it.
