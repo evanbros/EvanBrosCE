@@ -183,10 +183,10 @@ const ce = EvanBrosCE.init();
 
 const render => () {
   ce.draw.text(
-		"Example of text...",
+	  "Example of text...",
     {x: 120, y: 120},
-		"fill",
-		"16px Times New Roman"
+    "fill",
+    "16px Times New Roman"
   )
 }
 ```
@@ -207,8 +207,8 @@ const load => () {
 
 const render => () {
   ce.draw.image(
-		ce.assets['image1'],
-		{x: 50, y: 50, angle: -20, mirror: true}
+    ce.assets['image1'],
+    {x: 50, y: 50, angle: -20, mirror: true}
   )
 }
 ```
