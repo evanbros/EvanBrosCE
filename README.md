@@ -5,6 +5,7 @@ A Javascript canvas engine based in HTML Canvas
 ### Install
 
 ### First Steps
+Create an **HTML** and a *JavaScript* files.
 
 Your **_index.html_** may look like this:
 ```HTML
@@ -38,4 +39,4 @@ window.onload = () => {
 }
 ```
 
-Obs.: It is important that your JS file run inside of a **window.onload** event, this will make sure that all the stuff will load before you try to use it.
+\*It is important that your JS file run inside of a **window.onload** event, this will make sure that all the stuff will load before you try to use it.
