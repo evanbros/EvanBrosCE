@@ -86,8 +86,8 @@ class Draw {
     this.ctx.beginPath();
     this.ctx.strokeStyle = this.color;
     this.ctx.fillStyle = this.color;
-    this.ctx.moveTo(coordinates.x1, coordinates.y1);
-    this.ctx.arcTo(coordinates.x2, coordinates.y2, coordinates.x3, coordinates.y3, radius);
+    this.ctx.moveTo(coordinates.x[0], coordinates.y[0]);
+    this.ctx.arcTo(coordinates.x[1], coordinates.y[1], coordinates.x[2], coordinates.y[2], radius);
     if(type === "fill") {
       this.ctx.fill();
     } else if (type === "stroke") {

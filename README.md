@@ -102,3 +102,42 @@ const render => () {
   )
 }
 ```
+### draw.curve (coordinates, radius, type)
+#### Parameters:
+- coordinates (object):
+	- object { x (array of **three** numbers) , y (array of **three** numbers) }
+- radius (number):
+	- The radius size of circle created by this three points.
+- type (string):
+	- Accept one of this two values: "fill" or "stroke"
+#### Example:
+```javascript
+const ce = EvanBrosCE.init();
+
+const render => () {
+  ce.draw.curve(
+    {x: [100, 150, 150], y: [20, 20, 70]},
+    50,
+    "stroke"
+  )
+}
+```
+
+### draw.rectangle (coordinates, type)
+#### Parameters:
+- coordinates (object):
+	- object { x (number) , y (number), width (number), height (number) }
+- type (string):
+	- Accept one of this two values: "fill", "stroke" or \*"clear"
+	- \*The "clear" type will create a rectangle to erase the area.
+#### Example:
+```javascript
+const ce = EvanBrosCE.init();
+
+const render => () {
+  ce.draw.rectangle(
+    {x: 10, y: 10, width: 100, height: 200},
+    "fill"
+  )
+}
+```
