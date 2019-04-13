@@ -47,4 +47,18 @@ The **update** function will be used to perform the update layer of the data tha
 
 Finally you can use the function **render** to draw on the canvas.
 
-###EvanBrosCE 
+### EvanBrosCE Load Methods
+#### loadImage (name, source)
+##### Parameters:
+- name:
+	- The name that will be used to associate the image loaded.
+- source:
+	- The source of image file.
+##### Example:
+```javascript
+	const ce = EvanBrosCE.init();
+	
+	const load => () {
+		ce.loadImage('image1', 'imgs/image1.png');
+	}
+```
