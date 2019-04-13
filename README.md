@@ -5,7 +5,7 @@ A Javascript canvas engine based in HTML Canvas
 ### Install
 
 ### First Steps
-Create an **HTML** and a *JavaScript* files.
+Create an **HTML** and a **JavaScript** files.
 
 Your **_index.html_** may look like this:
 ```HTML
