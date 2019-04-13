@@ -2,7 +2,9 @@
 A Javascript canvas engine based in HTML Canvas
 
 ## Documentation
-Working on it!
+### Install
+
+### First Steps
 
 Your **_index.html_** may look like this:
 ```HTML
@@ -21,7 +23,7 @@ Your **_index.html_** may look like this:
 And the **_example.js_** may look like this:
 ```javascript
 window.onload = () => {
-  const ce = EvanBrosCE.init(800, 500);
+  const ce = EvanBrosCE.init();
 
   const load => () {
   }
@@ -36,4 +38,4 @@ window.onload = () => {
 }
 ```
 
-It is important that your JS file run inside of a **window.onload** event, this will make sure that all the stuff will load before you try to use it.
+Obs.: It is important that your JS file run inside of a **window.onload** event, this will make sure that all the stuff will load before you try to use it.
