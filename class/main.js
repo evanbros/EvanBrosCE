@@ -6,6 +6,7 @@ class EvanBrosCE {
     this.draw = new Draw(this.ctx, this.startDate, this.saveState, this.restoreState);
     this.sound = new Sound();
   }
+
   static init(x=400, y=400, smooth = false, style='background: black') {
     const canvas = {};
     const el = document.createElement('canvas');
@@ -24,6 +25,7 @@ class EvanBrosCE {
     evanbros.ctx.imageSmoothingEnabled = smooth;
     return evanbros;
   }
+
   run(load, update, render){
     var me = this;
     var preload = new Promise(function(resolve,reject){
@@ -37,6 +39,7 @@ class EvanBrosCE {
       me.animation = requestAnimationFrame(repeat);
     });
   }
+
   cleanCanvas(width, height){
     this.ctx.clearRect(0, 0, width, height);
     this.draw.setColor('white');
@@ -44,19 +47,30 @@ class EvanBrosCE {
     this.ctx.lineJoin = 'butt';
     this.ctx.lineWidth = 1;
   }
+
   loadImage(name, src) {
     var img = new Image();
     img.src = src;
     this.assets[name] = img;
   }
+
   loadSound(name, src) {
     var sound = new Audio(src);
     this.assets[name] = sound;
   }
+
   saveState() {
     this.ctx.save();
   }
+
   restoreState() {
     this.ctx.restore();
+  }
+  
+  calculateFPS() {
+    var oldDate = this.date;
+        this.date = new Date();
+    var interval = (oldDate - this.date)/1000;
+    return Math.round(1/interval*-1);
   }
 }

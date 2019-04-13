@@ -220,7 +220,7 @@ const render => () {
 - coordinates (object):
 	- object { x (number) , y (number), [width] (number), [height] (number), [mirror] (bool), [angle] (number) }
 - sprite (object)
-  - object { x (number), y (number), width (number), height (number)}
+  - object { x (number), y (number), width (number), height (number) }
 	- The position and size in sprite sheet of the sprites
 	- The width and height must respect the original pixels size of the image
 - frameLimit (number)
@@ -242,6 +242,36 @@ const render => () {
     {x: 0, y: 0, width: 60, height: 60},
     4,
     0.5
+  )
+}
+```
+
+### draw.pattern (image, coordinates, patternSize, repetition)
+#### Parameters:
+- image (assets):
+  - EvanBrosCE.assets['LOADED_SPRITE_NAME']
+- coordinates (object):
+	- object { x (number) , y (number), width (number), weight (number) }
+  - Coordinates of the area that will receive the pattern.
+- patternSize (object)
+  - object { width (number), height (number) }
+	- Size of pattern inside of area
+- repetition (string)
+	- Accept one of this four values: "repeat", "no-repeat", "repeat-x" or "repeat-y"
+#### Example:
+```javascript
+const ce = EvanBrosCE.init();
+
+const load => () {
+  ce.loadImage("pattern1", "imgs/pattern1.png");
+}
+
+const render => () {
+  game.draw.pattern(
+    game.assets["pattern1"],
+    {x: 100, y: 40, width: 400, height: 400},
+    {width: 50, height: 50},
+    "repeat"
   )
 }
 ```

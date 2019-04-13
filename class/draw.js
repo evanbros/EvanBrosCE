@@ -2,56 +2,41 @@ class Draw {
   constructor(ctx, startDate, save, restore) {
     this.ctx = ctx;
     this.color = 'white';
-    this.fps;
     this.startDate = startDate;
     this.saveState = save;
     this.restoreState = restore;
   }
-  calculateFPS() {
-    var oldDate = this.date;
-        this.date = new Date();
-    var interval = (oldDate - this.date)/1000;
-    this.fps = Math.round(1/interval*-1);
-  }
   setColor(color) {
     this.color = color;
   }
-  pattern(src, coordinates, patternSize, repetition) {
-    var patternCanvas = document.createElement('canvas');
-    patternCanvas.width = patternSize.width;
-    patternCanvas.height = patternSize.height;
-    
-    var patternCtx = patternCanvas.getContext('2d');
-    patternCtx.imageSmoothingEnabled = false;
-    patternCtx.drawImage(src, 0, 0, patternSize.width, patternSize.height);
-    this.ctx.fillStyle = this.ctx.createPattern(patternCanvas, repetition);
-    this.ctx.translate(coordinates.x, coordinates.y);
-    this.ctx.fillRect(0, 0, coordinates.width, coordinates.height);
-    this.ctx.translate(-coordinates.x, -coordinates.y);
-  }
+  
   setLinearGradient(coordinates, percentsAndColors) {
     this.color = this.ctx.createLinearGradient(coordinates[0][0], coordinates[0][1], coordinates[1][0], coordinates[1][1]);
     for(var i = 0; i < percentsAndColors.length; i++) {
       this.color.addColorStop(percentsAndColors[i][0]/100, percentsAndColors[i][1]);
     }
   }
+
   setRadialGradient(coordinates, percentsAndColors) {
     this.color = this.ctx.createRadialGradient(coordinates[0], coordinates[1], coordinates[2], coordinates[0], coordinates[1], coordinates[3]);
     for(var i = 0; i < percentsAndColors.length; i++) {
       this.color.addColorStop(percentsAndColors[i][0]/100, percentsAndColors[i][1]);
     }
   }
+
   setShadow(coordinates, blur, color) {
     this.ctx.shadowOffsetX = coordinates.x;
     this.ctx.shadowOffsetY = coordinates.y;
     this.ctx.shadowBlur = blur;
     this.ctx.shadowColor = color;
   }
+
   unsetShadow(){
     this.ctx.shadowOffsetX = 0;
     this.ctx.shadowOffsetY = 0;
     this.ctx.shadowBlur = 0;
   }
+
   path(coordinates, thickness, type) {
     this.ctx.beginPath();
     this.ctx.strokeStyle = this.color;
@@ -70,6 +55,7 @@ class Draw {
     }
     this.ctx.closePath();
   }
+
   arc(coordinates, radius, type, angles = {init:0,end:360}, anticlockwise = false) {
     this.ctx.beginPath();
     this.ctx.strokeStyle = this.color;
@@ -82,6 +68,7 @@ class Draw {
     }
     this.ctx.closePath();
   }
+
   curve(coordinates, radius, type) {
     this.ctx.beginPath();
     this.ctx.strokeStyle = this.color;
@@ -95,6 +82,7 @@ class Draw {
     }
     this.ctx.closePath();
   }
+
   rectangle(coordinates, type) {
     this.ctx.strokeStyle = this.color;
     this.ctx.fillStyle = this.color;
@@ -106,6 +94,7 @@ class Draw {
       this.ctx.clearRect(coordinates.x, coordinates.y, coordinates.width, coordinates.height);
     }
   }
+
   text(text, coordinates, type, style) {
     this.ctx.font = style
     if (type === 'fill') {
@@ -116,6 +105,7 @@ class Draw {
       this.ctx.strokeText(text, coordinates.x, coordinates.y);
     }
   }
+
   image(img, coordinates) {
     var width = coordinates.width || img.width,
         height = coordinates.height || img.height;
@@ -129,6 +119,7 @@ class Draw {
     this.ctx.drawImage(img, coordinates.x, coordinates.y, width, height);
     this.restoreState();
   }
+
   sprite(img, coordinates, sprite, frameLimit, timeToNextFrame) {
     var nowDate = new Date(),
         timeCounter = Math.round((nowDate - this.startDate)/(1000*timeToNextFrame)),
@@ -149,9 +140,25 @@ class Draw {
     this.ctx.drawImage(img, sprite.x , sprite.y, sprite.width, sprite.height, coordinates.x, coordinates.y, width, height);
     this.restoreState();
   }
+
+  pattern(img, coordinates, patternSize, repetition) {
+    var patternCanvas = document.createElement('canvas');
+    patternCanvas.width = patternSize.width;
+    patternCanvas.height = patternSize.height;
+    
+    var patternCtx = patternCanvas.getContext('2d');
+    patternCtx.imageSmoothingEnabled = false;
+    patternCtx.drawImage(img, 0, 0, patternSize.width, patternSize.height);
+    this.ctx.fillStyle = this.ctx.createPattern(patternCanvas, repetition);
+    this.ctx.translate(coordinates.x, coordinates.y);
+    this.ctx.fillRect(0, 0, coordinates.width, coordinates.height);
+    this.ctx.translate(-coordinates.x, -coordinates.y);
+  }
+
   translateScreen(x, y) {
     this.ctx.translate(x, y);
   }
+
   rotateScreen(angle) {
     this.ctx.rotate((Math.PI/180)*angle);
   }
