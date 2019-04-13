@@ -41,10 +41,10 @@ window.onload = () => {
 
 >\*It is important that your JS file run inside of a **window.onload** event, this will make sure that all the stuff will load before you try to use it.
 
-The ** load ** function should receive all the information that will be preloaded, simple data, objects, arrays, images or anything else that you want to use later.
+The **load** function should receive all the information that will be preloaded, simple data, objects, arrays, images or anything else that you want to use later.
 
-The ** update ** function will be used to perform the update layer of the data that will be used on the canvas.
+The **update** function will be used to perform the update layer of the data that will be used on the canvas.
 
-Finally you can use the function ** render ** to draw on the canvas.
+Finally you can use the function **render** to draw on the canvas.
 
 ###EvanBrosCE 
