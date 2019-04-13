@@ -3,7 +3,9 @@ A Javascript canvas engine based in HTML Canvas
 
 # Documentation
 ## Installation
+You may download or clone this repository and follow the instructions of the next section (Basic Set).
 
+Soon, we will have the package for installation at **[npm]**(www.npmjs.com)
 ## Basic Set
 Create an **HTML** and a **JavaScript** files.
 
@@ -13,7 +15,7 @@ Your **_index.html_** may look like this:
 <html>
   <head>
     <title>Example</title>
-    <script type="text/javascript" src="EvanBrosCE/EvanBrosCE.js"></script>
+    <script type="text/javascript" src="libs/EvanBrosCE/EvanBrosCE.js"></script>
     <script type="text/javascript" src="example.js"></script>
   </head>
   <body>
