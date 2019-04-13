@@ -1,10 +1,10 @@
 # EvanBrosCE
 A Javascript canvas engine based in HTML Canvas
 
-## Documentation
-### Installation
+# Documentation
+## Installation
 
-### Basic Set
+## Basic Set
 Create an **HTML** and a **JavaScript** files.
 
 Your **_index.html_** may look like this:
@@ -47,14 +47,14 @@ The **update** function will be used to perform the update layer of the data tha
 
 Finally you can use the function **render** to draw on the canvas.
 
-### EvanBrosCE Load Methods
-#### loadImage (name, source)
-##### Parameters:
+## EvanBrosCE Load Methods
+### loadImage (name, source)
+#### Parameters:
 - name:
 	- The name that will be used to associate the image loaded.
 - source:
 	- The source of image file.
-##### Example:
+#### Example:
 ```javascript
 	const ce = EvanBrosCE.init();
 	
