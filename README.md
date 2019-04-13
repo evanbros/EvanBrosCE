@@ -221,8 +221,8 @@ const render => () {
 	- object { x (number) , y (number), [width] (number), [height] (number), [mirror] (bool), [angle] (number) }
 - sprite (object)
   - object { x (number), y (number), width (number), height (number) }
-	- The position and size in sprite sheet of the sprites
-	- The width and height must respect the original pixels size of the image
+  - The position and size in sprite sheet of the sprites
+  - The width and height must respect the original pixels size of the image
 - frameLimit (number)
 	- Number of frames on sprite sheet
 - timeToNextFrame (number)
@@ -255,7 +255,7 @@ const render => () {
   - Coordinates of the area that will receive the pattern.
 - patternSize (object)
   - object { width (number), height (number) }
-	- Size of pattern inside of area
+  - Size of pattern inside of area
 - repetition (string)
 	- Accept one of this four values: "repeat", "no-repeat", "repeat-x" or "repeat-y"
 #### Example:
