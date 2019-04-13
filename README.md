@@ -5,7 +5,7 @@ A Javascript canvas engine based in HTML Canvas
 Working on it!
 
 Your **_index.html_** may look like this:
-```html
+```HTML
 <!DOCTYPE html>
 <html>
   <head>
@@ -19,7 +19,7 @@ Your **_index.html_** may look like this:
 ```
 
 And the **_example.js_** may look like this:
-```js
+```javascript
 window.onload = () => {
   const ce = EvanBrosCE.init(800, 500);
 
