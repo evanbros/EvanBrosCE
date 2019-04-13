@@ -56,9 +56,47 @@ Finally you can use the function **render** to draw on the canvas.
 	- The source of image file.
 #### Example:
 ```javascript
-	const ce = EvanBrosCE.init();
-	
-	const load => () {
-		ce.loadImage('image1', 'imgs/image1.png');
-	}
+const ce = EvanBrosCE.init();
+const image1;
+
+const load => () {
+  image1 = ce.loadImage("image1", "imgs/image1.png");
+}
+```
+### loadSound (name, source)
+#### Parameters:
+- name:
+	- The name that will be used to associate the sound loaded.
+- source:
+	- The source of sound file.
+#### Example:
+```javascript
+const ce = EvanBrosCE.init();
+const sound1;
+
+const load => () {
+  sound1 = ce.loadSound("image1", "sounds/sound1.mp3");
+}
+```
+
+## EvanBrosCE Draw Methods
+### draw.path (coordinates, thickness, type)
+#### Parameters:
+- coordinates (object):
+	- object { x (array of numbers) , y (array of numbers) }
+- thickness (number):
+	- The thickness size of the path.
+- type (string):
+	- Accept one of this two values: "fill" or "stroke"
+#### Example:
+```javascript
+const ce = EvanBrosCE.init();
+
+const render => () {
+  ce.draw.path(
+    {x: [10, 20, 30, 40, 90], y: [40, 20, 100, 30, 50]},
+    10,
+    "stroke"
+  )
+}
 ```
