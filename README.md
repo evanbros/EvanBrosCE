@@ -183,7 +183,7 @@ const ce = EvanBrosCE.init();
 
 const render => () {
   ce.draw.text(
-	  "Example of text...",
+    "Example of text...",
     {x: 120, y: 120},
     "fill",
     "16px Times New Roman"
