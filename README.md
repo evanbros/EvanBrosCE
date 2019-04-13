@@ -6,7 +6,7 @@ Working on it!
 
 Your **_index.html_** may look like this:
 ```
-[#f03c15](<!DOCTYPE html>)
+![#f03c15](<!DOCTYPE html>)
 <html>
   <head>
     <title>Example</title>
