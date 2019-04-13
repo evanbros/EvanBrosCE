@@ -5,7 +5,7 @@ A Javascript canvas engine based in HTML Canvas
 ## Installation
 You may download or clone this repository and follow the instructions of the next section (Basic Set).
 
-Soon, we will have the package for installation at **[npm]**(www.npmjs.com)
+Soon, we will have the package for installation at **[npm](https://www.npmjs.com)**.
 ## Basic Set
 Create an **HTML** and a **JavaScript** files.
 
