@@ -59,10 +59,9 @@ Finally you can use the function **render** to draw on the canvas.
 #### Example:
 ```javascript
 const ce = EvanBrosCE.init();
-const image1;
 
 const load => () {
-  image1 = ce.loadImage("image1", "imgs/image1.png");
+  ce.loadImage("image1", "imgs/image1.png");
 }
 ```
 ### loadSound (name, source)
@@ -74,10 +73,9 @@ const load => () {
 #### Example:
 ```javascript
 const ce = EvanBrosCE.init();
-const sound1;
 
 const load => () {
-  sound1 = ce.loadSound("image1", "sounds/sound1.mp3");
+  ce.loadSound("image1", "sounds/sound1.mp3");
 }
 ```
 
@@ -138,6 +136,112 @@ const render => () {
   ce.draw.rectangle(
     {x: 10, y: 10, width: 100, height: 200},
     "fill"
+  )
+}
+```
+
+### draw.arc (coordinates, radius, type, [angles], [anticlockwise])
+#### Parameters:
+- coordinates (object):
+	- object { x (number) , y (number) }
+- radius (number):
+	- The radius size of arc created.
+- type (string):
+	- Accept one of this two values: "fill" or "stroke"
+- angles (object):
+  - object {init (number), end (number)}
+  - Default values: {init: 0, end: 360}
+- anticlockwise (bool):
+	- Default value: false
+
+#### Example:
+```javascript
+const ce = EvanBrosCE.init();
+
+const render => () {
+  ce.draw.arc(
+    {x: 150, y: 200},
+    100,
+    "stroke"
+  )
+}
+```
+
+### draw.text (text, coordinates, type, style)
+#### Parameters:
+- text (string):
+  - Text that will be draw.
+- coordinates (object):
+	- object { x (number) , y (number) }
+- type (string):
+	- Accept one of this two values: "fill" or "stroke".
+- style (string):
+  - One string with number in pixels and the font-family of the text.
+#### Example:
+```javascript
+const ce = EvanBrosCE.init();
+
+const render => () {
+  ce.draw.text(
+		"Example of text...",
+    {x: 120, y: 120},
+		"fill",
+		"16px Times New Roman"
+  )
+}
+```
+
+### draw.image (image, coordinates)
+#### Parameters:
+- image (assets):
+  - EvanBrosCE.assets['LOADED_IMAGE_NAME']
+- coordinates (object):
+	- object { x (number) , y (number), [width] (number), [height] (number), [mirror] (bool), [angle] (number) }
+#### Example:
+```javascript
+const ce = EvanBrosCE.init();
+
+const load => () {
+  ce.loadImage("image1", "imgs/image1.png");
+}
+
+const render => () {
+  ce.draw.image(
+		ce.assets['image1'],
+		{x: 50, y: 50, angle: -20, mirror: true}
+  )
+}
+```
+
+### draw.sprite (image, coordinates, sprite, frameLimit, timeToNextFrame)
+#### Parameters:
+- image (assets):
+  - EvanBrosCE.assets['LOADED_SPRITE_NAME']
+- coordinates (object):
+	- object { x (number) , y (number), [width] (number), [height] (number), [mirror] (bool), [angle] (number) }
+- sprite (object)
+  - object { x (number), y (number), width (number), height (number)}
+	- The position and size in sprite sheet of the sprites
+	- The width and height must respect the original pixels size of the image
+- frameLimit (number)
+	- Number of frames on sprite sheet
+- timeToNextFrame (number)
+  - Time in seconds to change the frames on sprite sheet
+#### Example:
+```javascript
+const ce = EvanBrosCE.init();
+
+const load => () {
+  ce.loadImage("sprite1", "imgs/sprite1.png");
+}
+
+const render => () {
+  game.draw.sprite(
+    game.assets['sprite1'],
+    {x: 10, y: 10},
+    {x: 0, y: 0, width: 60, height: 60},
+    4,
+    0.5
   )
 }
 ```

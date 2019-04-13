@@ -146,7 +146,7 @@ class Draw {
     }
     this.rotateScreen(coordinates.angle);
     this.translateScreen(-(coordinates.x+width/2), -(coordinates.y+height/2));
-    this.ctx.drawImage(img, sprite.x , sprite.y, sprite.width, sprite.height, coordinates.x, coordinates.y, coordinates.width, coordinates.height);
+    this.ctx.drawImage(img, sprite.x , sprite.y, sprite.width, sprite.height, coordinates.x, coordinates.y, width, height);
     this.restoreState();
   }
   translateScreen(x, y) {
