@@ -107,52 +107,58 @@ class Draw {
   }
 
   image(img, coordinates) {
-    var width = coordinates.width || img.width,
-        height = coordinates.height || img.height;
-    this.saveState();
-    this.translateScreen(coordinates.x+width/2, coordinates.y+height/2);
-    if(coordinates.mirror) {
-      this.ctx.scale(-1, 1);
+    if(img.complete) {
+      var width = coordinates.width || img.width,
+      height = coordinates.height || img.height;
+      this.saveState();
+      this.translateScreen(coordinates.x+width/2, coordinates.y+height/2);
+      if(coordinates.mirror) {
+        this.ctx.scale(-1, 1);
+      }
+      this.rotateScreen(coordinates.angle);
+      this.translateScreen(-(coordinates.x+width/2), -(coordinates.y+height/2));
+      this.ctx.drawImage(img, coordinates.x, coordinates.y, width, height);
+      this.restoreState();
     }
-    this.rotateScreen(coordinates.angle);
-    this.translateScreen(-(coordinates.x+width/2), -(coordinates.y+height/2));
-    this.ctx.drawImage(img, coordinates.x, coordinates.y, width, height);
-    this.restoreState();
   }
-
+    
   sprite(img, coordinates, sprite, frameLimit, timeToNextFrame) {
-    var nowDate = new Date(),
+    if(img.complete) {
+      var nowDate = new Date(),
         timeCounter = Math.round((nowDate - this.startDate)/(1000*timeToNextFrame)),
         frame = (timeCounter % frameLimit);
-    if(frame) {
-        sprite.x += sprite.width*frame;
-    }
-    var width = coordinates.width || img.width,
-        height = coordinates.height || img.height;
+        if(frame) {
+          sprite.x += sprite.width*frame;
+        }
+      var width = coordinates.width || img.width,
+          height = coordinates.height || img.height;
 
-    this.saveState();
-    this.translateScreen(coordinates.x+width/2, coordinates.y+height/2);
-    if(coordinates.mirror) {
-      this.ctx.scale(-1, 1);
+      this.saveState();
+      this.translateScreen(coordinates.x+width/2, coordinates.y+height/2);
+      if(coordinates.mirror) {
+        this.ctx.scale(-1, 1);
+      }
+      this.rotateScreen(coordinates.angle);
+      this.translateScreen(-(coordinates.x+width/2), -(coordinates.y+height/2));
+      this.ctx.drawImage(img, sprite.x , sprite.y, sprite.width, sprite.height, coordinates.x, coordinates.y, width, height);
+      this.restoreState();
     }
-    this.rotateScreen(coordinates.angle);
-    this.translateScreen(-(coordinates.x+width/2), -(coordinates.y+height/2));
-    this.ctx.drawImage(img, sprite.x , sprite.y, sprite.width, sprite.height, coordinates.x, coordinates.y, width, height);
-    this.restoreState();
   }
 
   pattern(img, coordinates, patternSize, repetition) {
-    var patternCanvas = document.createElement('canvas');
-    patternCanvas.width = patternSize.width;
-    patternCanvas.height = patternSize.height;
-    
-    var patternCtx = patternCanvas.getContext('2d');
-    patternCtx.imageSmoothingEnabled = false;
-    patternCtx.drawImage(img, 0, 0, patternSize.width, patternSize.height);
-    this.ctx.fillStyle = this.ctx.createPattern(patternCanvas, repetition);
-    this.ctx.translate(coordinates.x, coordinates.y);
-    this.ctx.fillRect(0, 0, coordinates.width, coordinates.height);
-    this.ctx.translate(-coordinates.x, -coordinates.y);
+    if(img.complete) {
+      var patternCanvas = document.createElement('canvas');
+      patternCanvas.width = patternSize.width;
+      patternCanvas.height = patternSize.height;
+      
+      var patternCtx = patternCanvas.getContext('2d');
+      patternCtx.imageSmoothingEnabled = false;
+      patternCtx.drawImage(img, 0, 0, patternSize.width, patternSize.height);
+      this.ctx.fillStyle = this.ctx.createPattern(patternCanvas, repetition);
+      this.ctx.translate(coordinates.x, coordinates.y);
+      this.ctx.fillRect(0, 0, coordinates.width, coordinates.height);
+      this.ctx.translate(-coordinates.x, -coordinates.y);
+    }
   }
 
   translateScreen(x, y) {

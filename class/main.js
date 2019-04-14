@@ -29,7 +29,7 @@ class EvanBrosCE {
   run(load, update, render){
     var me = this;
     var preload = new Promise(function(resolve,reject){
-      load()
+      load();
       resolve();
     });
     preload.then(function repeat(){

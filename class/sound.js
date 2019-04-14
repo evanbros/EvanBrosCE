@@ -1,15 +1,31 @@
 class Sound {
   playSound(sound) {
-    sound.play();
+    if(sound.readyState == 4) {
+      if(sound.paused) {
+        sound.play();
+      }
+    }
   }
   stopSound(sound) {
-    sound.pause();
-    sound.currentTime = 0;
+    if(sound.readyState == 4) {
+      if(!sound.paused && sound.currentTime !== 0) {
+        sound.pause();
+        sound.currentTime = 0;
+      }
+    }
   }
   pauseSound(sound) {
-    sound.pause();
+    if(sound.readyState == 4) {
+      if(!sound.paused) {
+        sound.pause();
+      }
+    }
   }
   setVolume(sound, volume) {
-    sound.volume = volume;
+    if(sound.readyState == 4) {
+      if(volume > 0) {
+        sound.volume = volume/100;
+      }
+    }
   }
 }
