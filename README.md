@@ -1,5 +1,5 @@
 # EvanBrosCE
-A Javascript canvas engine based in HTML Canvas
+A Javascript 2D canvas engine based in HTML Canvas
 
 # Documentation
 ## Installation
