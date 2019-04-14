@@ -300,25 +300,46 @@ const render => () {
 }
 ```
 
-### draw.setLinearGradient (color)
+### draw.setLinearGradient (coordinates, colors)
 #### Parameters:
-- color (string)
-  - Hexadecimal numbers or web colors
+- coordinates (object)
+  - object { x (number) , y (number), x2 (number), y2 (number) }
+- colors (object)
+  - object { \*color (number) }
+  - Percentual number of the color in gradient
+  - \*Use hexadecimal numbers or web colors
 #### Example:
 ```javascript
 const ce = EvanBrosCE.init();
 
 const render => () {
-  ce.draw.setColor('blue');
-  ce.draw.rectangle(
-    {x:100, y:50, width: 50, height: 50},
-    "stroke"
+  ce.draw.setLinearGradient(
+    {x: 400, y: 0, x2: 600, y2: 0}, 
+    {"red": 0, "green": 20, "white": 40, "blue": 60, "#cc00dd": 80, "yellow": 100}
+  )
+  
+  ce.draw.rectangle({x: 400, y: 150, width: 200, height: 200}, "fill");  
+}
+```
+
+### draw.setRadialGradient (coordinates, colors)
+#### Parameters:
+- coordinates (object)
+  - object { x (number) , y (number), x2 (number), y2 (number) }
+- colors (object)
+  - object { \*color (number) }
+  - Percentual number of the color in gradient
+  - \*Use hexadecimal numbers or web colors
+#### Example:
+```javascript
+const ce = EvanBrosCE.init();
+
+const render => () {
+  ce.draw.setRadialGradient(
+    {x: 250, y: 250, initR: 25	, endR: 100}, 
+    {'red': 0, 'green': 33, 'white': 66, 'blue': 100}
   );
   
-  ce.draw.setColor('#ff0000');
-  ce.draw.rectangle(
-    {x:200, y:100, width: 50, height: 50},
-    "fill"
-  );
+  ce.draw.arc({x: 250, y: 250}, 100, 'fill');
 }
 ```

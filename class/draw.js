@@ -10,17 +10,17 @@ class Draw {
     this.color = color;
   }
   
-  setLinearGradient(coordinates, percentsAndColors) {
+  setLinearGradient(coordinates, colors) {
     this.color = this.ctx.createLinearGradient(coordinates.x, coordinates.y, coordinates.x2, coordinates.y2);
-    for (var property in percentsAndColors) {
-      this.color.addColorStop(percentsAndColors[property]/100, property);
+    for (var property in colors) {
+      this.color.addColorStop(colors[property]/100, property);
     }
   }
 
-  setRadialGradient(coordinates, percentsAndColors) {
+  setRadialGradient(coordinates, colors) {
     this.color = this.ctx.createRadialGradient(coordinates.x, coordinates.y, coordinates.initR, coordinates.x, coordinates.y, coordinates.endR);
-    for (var property in percentsAndColors) {
-      this.color.addColorStop(percentsAndColors[property]/100, property);
+    for (var property in colors) {
+      this.color.addColorStop(colors[property]/100, property);
     }
   }
 
