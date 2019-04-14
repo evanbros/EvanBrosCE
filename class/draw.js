@@ -11,16 +11,16 @@ class Draw {
   }
   
   setLinearGradient(coordinates, percentsAndColors) {
-    this.color = this.ctx.createLinearGradient(coordinates[0][0], coordinates[0][1], coordinates[1][0], coordinates[1][1]);
-    for(var i = 0; i < percentsAndColors.length; i++) {
-      this.color.addColorStop(percentsAndColors[i][0]/100, percentsAndColors[i][1]);
+    this.color = this.ctx.createLinearGradient(coordinates.x, coordinates.y, coordinates.x2, coordinates.y2);
+    for (var property in percentsAndColors) {
+      this.color.addColorStop(percentsAndColors[property]/100, property);
     }
   }
 
   setRadialGradient(coordinates, percentsAndColors) {
-    this.color = this.ctx.createRadialGradient(coordinates[0], coordinates[1], coordinates[2], coordinates[0], coordinates[1], coordinates[3]);
-    for(var i = 0; i < percentsAndColors.length; i++) {
-      this.color.addColorStop(percentsAndColors[i][0]/100, percentsAndColors[i][1]);
+    this.color = this.ctx.createRadialGradient(coordinates.x, coordinates.y, coordinates.initR, coordinates.x, coordinates.y, coordinates.endR);
+    for (var property in percentsAndColors) {
+      this.color.addColorStop(percentsAndColors[property]/100, property);
     }
   }
 

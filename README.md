@@ -236,8 +236,8 @@ const load => () {
 }
 
 const render => () {
-  game.draw.sprite(
-    game.assets['sprite1'],
+  ce.draw.sprite(
+    ce.assets['sprite1'],
     {x: 10, y: 10},
     {x: 0, y: 0, width: 60, height: 60},
     4,
@@ -267,11 +267,58 @@ const load => () {
 }
 
 const render => () {
-  game.draw.pattern(
-    game.assets["pattern1"],
+  ce.draw.pattern(
+    ce.assets["pattern1"],
     {x: 100, y: 40, width: 400, height: 400},
     {width: 50, height: 50},
     "repeat"
   )
+}
+```
+
+## EvanBrosCE Draw Methods (Setters)
+### draw.setColor (color)
+#### Parameters:
+- color (string)
+  - Hexadecimal numbers or web colors
+#### Example:
+```javascript
+const ce = EvanBrosCE.init();
+
+const render => () {
+  ce.draw.setColor('blue');
+  ce.draw.rectangle(
+    {x:100, y:50, width: 50, height: 50},
+    "stroke"
+  );
+  
+  ce.draw.setColor('#ff0000');
+  ce.draw.rectangle(
+    {x:200, y:100, width: 50, height: 50},
+    "fill"
+  );
+}
+```
+
+### draw.setLinearGradient (color)
+#### Parameters:
+- color (string)
+  - Hexadecimal numbers or web colors
+#### Example:
+```javascript
+const ce = EvanBrosCE.init();
+
+const render => () {
+  ce.draw.setColor('blue');
+  ce.draw.rectangle(
+    {x:100, y:50, width: 50, height: 50},
+    "stroke"
+  );
+  
+  ce.draw.setColor('#ff0000');
+  ce.draw.rectangle(
+    {x:200, y:100, width: 50, height: 50},
+    "fill"
+  );
 }
 ```
