@@ -169,3 +169,5 @@ class Draw {
     this.ctx.rotate((Math.PI/180)*angle);
   }
 }
+
+export default Draw;

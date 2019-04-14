@@ -1,0 +1,25 @@
+{
+  "name": "evanbrosce",
+  "version": "1.0.3",
+  "description": "A Javascript 2D canvas engine based in HTML Canvas",
+  "main": "EvanBrosCE.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evanbros/EvanBrosCE.git"
+  },
+  "keywords": [
+    "canvas",
+    "engine",
+    "canvas2d",
+    "canvasjs"
+  ],
+  "author": "EvanBros",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/evanbros/EvanBrosCE/issues"
+  },
+  "homepage": "https://github.com/evanbros/EvanBrosCE#readme"
+}
