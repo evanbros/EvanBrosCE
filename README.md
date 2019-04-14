@@ -87,7 +87,7 @@ const load => () {
 - thickness (number):
 	- The thickness size of the path.
 - type (string):
-	- Accept one of this two values: "fill" or "stroke"
+	- Accept one of this two values: "fill" or "stroke".
 #### Example:
 ```javascript
 const ce = EvanBrosCE.init();
@@ -97,7 +97,7 @@ const render => () {
     {x: [10, 20, 30, 40, 90], y: [40, 20, 100, 30, 50]},
     10,
     "stroke"
-  )
+  );
 }
 ```
 ### draw.curve (coordinates, radius, type)
@@ -107,7 +107,7 @@ const render => () {
 - radius (number):
 	- The radius size of circle created by this three points.
 - type (string):
-	- Accept one of this two values: "fill" or "stroke"
+	- Accept one of this two values: "fill" or "stroke".
 #### Example:
 ```javascript
 const ce = EvanBrosCE.init();
@@ -117,7 +117,7 @@ const render => () {
     {x: [100, 150, 150], y: [20, 20, 70]},
     50,
     "stroke"
-  )
+  );
 }
 ```
 
@@ -126,7 +126,7 @@ const render => () {
 - coordinates (object):
 	- object { x (number) , y (number), width (number), height (number) }
 - type (string):
-	- Accept one of this two values: "fill", "stroke" or \*"clear"
+	- Accept one of this two values: "fill", "stroke" or \*"clear".
 	- \*The "clear" type will create a rectangle to erase the area.
 #### Example:
 ```javascript
@@ -136,7 +136,7 @@ const render => () {
   ce.draw.rectangle(
     {x: 10, y: 10, width: 100, height: 200},
     "fill"
-  )
+  );
 }
 ```
 
@@ -163,7 +163,7 @@ const render => () {
     {x: 150, y: 200},
     100,
     "stroke"
-  )
+  );
 }
 ```
 
@@ -187,7 +187,7 @@ const render => () {
     {x: 120, y: 120},
     "fill",
     "16px Times New Roman"
-  )
+  );
 }
 ```
 
@@ -209,7 +209,7 @@ const render => () {
   ce.draw.image(
     ce.assets['image1'],
     {x: 50, y: 50, angle: -20, mirror: true}
-  )
+  );
 }
 ```
 
@@ -221,12 +221,12 @@ const render => () {
 	- object { x (number) , y (number), [width] (number), [height] (number), [mirror] (bool), [angle] (number) }
 - sprite (object)
   - object { x (number), y (number), width (number), height (number) }
-  - The position and size in sprite sheet of the sprites
-  - The width and height must respect the original pixels size of the image
+  - The position and size in sprite sheet of the sprites.
+  - The width and height must respect the original pixels size of the image.
 - frameLimit (number)
-	- Number of frames on sprite sheet
+	- Number of frames on sprite sheet.
 - timeToNextFrame (number)
-  - Time in seconds to change the frames on sprite sheet
+  - Time in seconds to change the frames on sprite sheet.
 #### Example:
 ```javascript
 const ce = EvanBrosCE.init();
@@ -242,7 +242,7 @@ const render => () {
     {x: 0, y: 0, width: 60, height: 60},
     4,
     0.5
-  )
+  );
 }
 ```
 
@@ -255,9 +255,9 @@ const render => () {
   - Coordinates of the area that will receive the pattern.
 - patternSize (object)
   - object { width (number), height (number) }
-  - Size of pattern inside of area
+  - Size of pattern inside of area.
 - repetition (string)
-	- Accept one of this four values: "repeat", "no-repeat", "repeat-x" or "repeat-y"
+	- Accept one of this four values: "repeat", "no-repeat", "repeat-x" or "repeat-y".
 #### Example:
 ```javascript
 const ce = EvanBrosCE.init();
@@ -272,7 +272,7 @@ const render => () {
     {x: 100, y: 40, width: 400, height: 400},
     {width: 50, height: 50},
     "repeat"
-  )
+  );
 }
 ```
 
@@ -280,19 +280,21 @@ const render => () {
 ### draw.setColor (color)
 #### Parameters:
 - color (string)
-  - Hexadecimal numbers or web colors
+  - Hexadecimal numbers or web colors.
 #### Example:
 ```javascript
 const ce = EvanBrosCE.init();
 
 const render => () {
   ce.draw.setColor('blue');
+
   ce.draw.rectangle(
     {x:100, y:50, width: 50, height: 50},
     "stroke"
   );
   
   ce.draw.setColor('#ff0000');
+
   ce.draw.rectangle(
     {x:200, y:100, width: 50, height: 50},
     "fill"
@@ -306,8 +308,8 @@ const render => () {
   - object { x (number) , y (number), x2 (number), y2 (number) }
 - colors (object)
   - object { \*color (number) }
-  - Percentual number of the color in gradient
-  - \*Use hexadecimal numbers or web colors
+  - Percentual number of the color in gradient.
+  - \*Use hexadecimal numbers or web colors.
 #### Example:
 ```javascript
 const ce = EvanBrosCE.init();
@@ -316,7 +318,7 @@ const render => () {
   ce.draw.setLinearGradient(
     {x: 400, y: 0, x2: 600, y2: 0}, 
     {"red": 0, "green": 20, "white": 40, "blue": 60, "#cc00dd": 80, "yellow": 100}
-  )
+  );
   
   ce.draw.rectangle({x: 400, y: 150, width: 200, height: 200}, "fill");  
 }
@@ -328,8 +330,8 @@ const render => () {
   - object { x (number) , y (number), x2 (number), y2 (number) }
 - colors (object)
   - object { \*color (number) }
-  - Percentual number of the color in gradient
-  - \*Use hexadecimal numbers or web colors
+  - Percentual number of the color in gradient.
+  - \*Use hexadecimal numbers or web colors.
 #### Example:
 ```javascript
 const ce = EvanBrosCE.init();
@@ -341,5 +343,50 @@ const render => () {
   );
   
   ce.draw.arc({x: 250, y: 250}, 100, 'fill');
+}
+```
+
+### draw.setShadow (offsetCoordinates, blurLevel, color)
+#### Parameters:
+- offsetCoordinates (object)
+  - object { x (number) , y (number) }
+- blurLevel (number)
+  - Level of the blur effect on shadow.
+- color (string)
+  - Hexadecimal numbers or web colors.
+#### Example:
+```javascript
+const ce = EvanBrosCE.init();
+
+const render => () {
+  game.draw.setShadow(
+    {x: 10, y: 10},
+    20,
+    'red'
+  );
+  
+  ce.draw.arc({x: 250, y: 250}, 100, 'fill');
+}
+```
+
+### draw.unsetShadow ()
+#### Parameters:
+- Void
+#### Example:
+```javascript
+const ce = EvanBrosCE.init();
+
+const render => () {
+  game.draw.setShadow(
+    {x: 10, y: 10},
+    20,
+    'red'
+  );
+  
+  ce.draw.arc({x: 250, y: 250}, 100, 'fill');
+  
+  game.draw.unsetShadow();
+
+  game.draw.rectangle({x: 400, y: 150, width: 200, height: 200}, 'fill');
 }
 ```

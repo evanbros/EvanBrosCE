@@ -24,10 +24,10 @@ class Draw {
     }
   }
 
-  setShadow(coordinates, blur, color) {
-    this.ctx.shadowOffsetX = coordinates.x;
-    this.ctx.shadowOffsetY = coordinates.y;
-    this.ctx.shadowBlur = blur;
+  setShadow(offsetCoordinates, blurLevel, color) {
+    this.ctx.shadowOffsetX = offsetCoordinates.x;
+    this.ctx.shadowOffsetY = offsetCoordinates.y;
+    this.ctx.shadowBlur = blurLevel;
     this.ctx.shadowColor = color;
   }
 
