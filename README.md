@@ -49,12 +49,50 @@ The **update** function will be used to perform the update layer of the data tha
 
 Finally you can use the function **render** to draw on the canvas.
 
+## EvanBrosCE Main Methods
+### init ([width], [height], [smooth], [style])
+#### Parameters:
+- width (number):
+  - HTML width for the canvas element.
+  - Default value: 400
+- height (number):
+  - HTML height for the canvas element.
+  - Default value: 400
+- smooth (bool):
+  - The pixels of scaled images are smoothed if true value.
+  - Default value: false
+- style (string):
+  - HTML style for the canvas element.
+  - Default value: "background: black"
+#### Example:
+```javascript
+  const ce = EvanBrosCE.init(800, 500, true, "border: black solid 4px; background: white");
+```
+
+### run (load, update, render)
+#### Parameters:
+- load (function)
+- update (function)
+- render (function)
+#### Example:
+```javascript
+  ce.run(myLoadFunction, myUpdateFunction, myRenderFunction);
+```
+
+### calculateFPS ()
+#### Parameters:
+- Void
+#### Example:
+```javascript
+  const fps = ce.calculateFPS();
+```
+
 ## EvanBrosCE Load Methods
 ### loadImage (name, source)
 #### Parameters:
-- name:
+- name (string):
 	- The name that will be used to associate the image loaded.
-- source:
+- source (string):
 	- The source of image file.
 #### Example:
 ```javascript
@@ -64,11 +102,12 @@ const load => () {
   ce.loadImage("image1", "imgs/image1.png");
 }
 ```
+
 ### loadSound (name, source)
 #### Parameters:
-- name:
+- name (string):
 	- The name that will be used to associate the sound loaded.
-- source:
+- source (string):
 	- The source of sound file.
 #### Example:
 ```javascript
@@ -100,6 +139,7 @@ const render => () {
   );
 }
 ```
+
 ### draw.curve (coordinates, radius, type)
 #### Parameters:
 - coordinates (object):

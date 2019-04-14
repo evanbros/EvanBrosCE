@@ -7,11 +7,11 @@ class EvanBrosCE {
     this.sound = new Sound();
   }
 
-  static init(x=400, y=400, smooth = false, style='background: black') {
+  static init(width=400, height=400, smooth = false, style='background: black') {
     const canvas = {};
     const el = document.createElement('canvas');
-    canvas.width = x;
-    canvas.height = y;
+    canvas.width = width;
+    canvas.height = height;
     canvas.style = style;
     
     el.setAttribute('id', 'canvas_game');
