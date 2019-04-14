@@ -430,3 +430,107 @@ const render => () {
   game.draw.rectangle({x: 400, y: 150, width: 200, height: 200}, 'fill');
 }
 ```
+
+## EvanBrosCE Sound Methods
+### sound.playSound (sound)
+#### Parameters:
+- sound (assets):
+  - EvanBrosCE.assets['LOADED_SOUND_NAME']
+#### Example:
+```javascript
+const ce = EvanBrosCE.init();
+
+const load => () {
+  ce.loadSound("sound1", "sounds/sound1.png");
+}
+
+const render => () {
+  ce.sound.playSound(
+    ce.assets['sound1'],
+  );
+}
+```
+
+### sound.stopSound (sound)
+#### Parameters:
+- sound (assets):
+  - EvanBrosCE.assets['LOADED_SOUND_NAME']
+#### Example:
+```javascript
+const ce = EvanBrosCE.init();
+
+const load => () {
+  ce.loadSound("sound1", "sounds/sound1.png");
+}
+
+const render => () {
+  if(something) {
+    ce.sound.playSound(
+      ce.assets['sound1'],
+    );
+  }
+  
+  if(situation) {
+    ce.sound.stopSound(
+      ce.assets['sound1'],
+    );
+  }
+}
+```
+
+### sound.pauseSound (sound)
+#### Parameters:
+- sound (assets):
+  - EvanBrosCE.assets['LOADED_SOUND_NAME']
+#### Example:
+```javascript
+const ce = EvanBrosCE.init();
+
+const load => () {
+  ce.loadSound("sound1", "sounds/sound1.png");
+}
+
+const render => () {
+  if(something) {
+    ce.sound.playSound(
+      ce.assets['sound1'],
+    );
+  }
+  
+  if(situation) {
+    ce.sound.pauseSound(
+      ce.assets['sound1'],
+    );
+  }
+}
+```
+
+### sound.setVolume (sound, volume)
+#### Parameters:
+- sound (assets):
+  - EvanBrosCE.assets['LOADED_SOUND_NAME']
+- volume (number)
+  - From one to one hundred percent of the sound volume
+#### Example:
+```javascript
+const ce = EvanBrosCE.init();
+
+const load => () {
+  ce.loadSound("sound1", "sounds/sound1.png");
+}
+
+const render => () {
+  if(something) {
+    ce.sound.playSound(
+      ce.assets['sound1'],
+    );
+  }
+  
+  if(situation) {
+    ce.sound.setVolume(
+      ce.assets['sound1'],
+      30
+    );
+  }
+}
+```
