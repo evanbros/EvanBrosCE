@@ -3,45 +3,33 @@ A Javascript 2D canvas engine based in HTML Canvas
 
 # Documentation
 ## Installation
-You may download or clone this repository and follow the instructions of the next section (Basic Set).
+Install the package from **["npm"](https://www.npmjs.com/package/evanbrosce)**.
 
-Soon, we will have the package for installation at **[npm](https://www.npmjs.com)**.
+The command to install with "npm" package manager is:
+```console
+npm i evanbrosce
+
+```
+
+Now you can follow the instructions bellow in basic set to create your first application with EvanBrosCE.
 ## Basic Set
-Create an **HTML** and a **JavaScript** files.
-
-Your **_index.html_** may look like this:
-```HTML
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Example</title>
-    <script type="text/javascript" src="libs/EvanBrosCE/EvanBrosCE.js"></script>
-    <script type="text/javascript" src="example.js"></script>
-  </head>
-  <body>
-  </body>
-</html>
-```
-
-And the **_example.js_** should look like this:
+In your JS file write something like this:
 ```javascript
-window.onload = () => {
-  const ce = EvanBrosCE.init();
+import EvanBrosCE from './node_modules/evanbrosce/EvanBrosCE.js';
 
-  const load => () {
-  }
+const ce = EvanBrosCE.init();
 
-  const update => () {
-  }
-
-  const render => () {
-  }
-
-  ce.run(load, update, render);
+const load => () {
 }
-```
 
->\*It is important that your JS file run inside of a **window.onload** event, this will make sure that all the stuff will load before you try to use it.
+const update => () {
+}
+
+const render => () {
+}
+
+ce.run(load, update, render);
+```
 
 The **load** function should receive all the information that will be preloaded, simple data, objects, arrays, images or anything else that you want to use later.
 
