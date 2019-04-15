@@ -19,13 +19,13 @@ import EvanBrosCE from './node_modules/evanbrosce/EvanBrosCE.js';
 
 const ce = EvanBrosCE.init();
 
-const load => () {
+const load = () => {
 }
 
-const update => () {
+const update = () => {
 }
 
-const render => () {
+const render = () => {
 }
 
 ce.run(load, update, render);
@@ -86,7 +86,7 @@ Finally you can use the function **render** to draw on the canvas.
 ```javascript
 const ce = EvanBrosCE.init();
 
-const load => () {
+const load = () => {
   ce.loadImage("image1", "imgs/image1.png");
 }
 ```
@@ -101,7 +101,7 @@ const load => () {
 ```javascript
 const ce = EvanBrosCE.init();
 
-const load => () {
+const load = () => {
   ce.loadSound("image1", "sounds/sound1.mp3");
 }
 ```
@@ -119,7 +119,7 @@ const load => () {
 ```javascript
 const ce = EvanBrosCE.init();
 
-const render => () {
+const render = () => {
   ce.draw.path(
     {x: [10, 20, 30, 40, 90], y: [40, 20, 100, 30, 50]},
     10,
@@ -140,7 +140,7 @@ const render => () {
 ```javascript
 const ce = EvanBrosCE.init();
 
-const render => () {
+const render = () => {
   ce.draw.curve(
     {x: [100, 150, 150], y: [20, 20, 70]},
     50,
@@ -160,7 +160,7 @@ const render => () {
 ```javascript
 const ce = EvanBrosCE.init();
 
-const render => () {
+const render = () => {
   ce.draw.rectangle(
     {x: 10, y: 10, width: 100, height: 200},
     "fill"
@@ -186,7 +186,7 @@ const render => () {
 ```javascript
 const ce = EvanBrosCE.init();
 
-const render => () {
+const render = () => {
   ce.draw.arc(
     {x: 150, y: 200},
     100,
@@ -209,7 +209,7 @@ const render => () {
 ```javascript
 const ce = EvanBrosCE.init();
 
-const render => () {
+const render = () => {
   ce.draw.text(
     "Example of text...",
     {x: 120, y: 120},
@@ -229,11 +229,11 @@ const render => () {
 ```javascript
 const ce = EvanBrosCE.init();
 
-const load => () {
+const load = () => {
   ce.loadImage("image1", "imgs/image1.png");
 }
 
-const render => () {
+const render = () => {
   ce.draw.image(
     ce.assets['image1'],
     {x: 50, y: 50, angle: -20, mirror: true}
@@ -259,11 +259,11 @@ const render => () {
 ```javascript
 const ce = EvanBrosCE.init();
 
-const load => () {
+const load = () => {
   ce.loadImage("sprite1", "imgs/sprite1.png");
 }
 
-const render => () {
+const render = () => {
   ce.draw.sprite(
     ce.assets['sprite1'],
     {x: 10, y: 10},
@@ -290,11 +290,11 @@ const render => () {
 ```javascript
 const ce = EvanBrosCE.init();
 
-const load => () {
+const load = () => {
   ce.loadImage("pattern1", "imgs/pattern1.png");
 }
 
-const render => () {
+const render = () => {
   ce.draw.pattern(
     ce.assets["pattern1"],
     {x: 100, y: 40, width: 400, height: 400},
@@ -313,7 +313,7 @@ const render => () {
 ```javascript
 const ce = EvanBrosCE.init();
 
-const render => () {
+const render = () => {
   ce.draw.setColor('blue');
 
   ce.draw.rectangle(
@@ -342,7 +342,7 @@ const render => () {
 ```javascript
 const ce = EvanBrosCE.init();
 
-const render => () {
+const render = () => {
   ce.draw.setLinearGradient(
     {x: 400, y: 0, x2: 600, y2: 0}, 
     {"red": 0, "green": 20, "white": 40, "blue": 60, "#cc00dd": 80, "yellow": 100}
@@ -364,7 +364,7 @@ const render => () {
 ```javascript
 const ce = EvanBrosCE.init();
 
-const render => () {
+const render = () => {
   ce.draw.setRadialGradient(
     {x: 250, y: 250, initR: 25	, endR: 100}, 
     {'red': 0, 'green': 33, 'white': 66, 'blue': 100}
@@ -386,7 +386,7 @@ const render => () {
 ```javascript
 const ce = EvanBrosCE.init();
 
-const render => () {
+const render = () => {
   game.draw.setShadow(
     {x: 10, y: 10},
     20,
@@ -404,7 +404,7 @@ const render => () {
 ```javascript
 const ce = EvanBrosCE.init();
 
-const render => () {
+const render = () => {
   game.draw.setShadow(
     {x: 10, y: 10},
     20,
@@ -428,11 +428,11 @@ const render => () {
 ```javascript
 const ce = EvanBrosCE.init();
 
-const load => () {
-  ce.loadSound("sound1", "sounds/sound1.png");
+const load = () => {
+  ce.loadSound("sound1", "sounds/sound1.mp3");
 }
 
-const render => () {
+const render = () => {
   ce.sound.playSound(
     ce.assets['sound1'],
   );
@@ -447,11 +447,11 @@ const render => () {
 ```javascript
 const ce = EvanBrosCE.init();
 
-const load => () {
-  ce.loadSound("sound1", "sounds/sound1.png");
+const load = () => {
+  ce.loadSound("sound1", "sounds/sound1.mp3");
 }
 
-const render => () {
+const render = () => {
   if(something) {
     ce.sound.playSound(
       ce.assets['sound1'],
@@ -474,11 +474,11 @@ const render => () {
 ```javascript
 const ce = EvanBrosCE.init();
 
-const load => () {
-  ce.loadSound("sound1", "sounds/sound1.png");
+const load = () => {
+  ce.loadSound("sound1", "sounds/sound1.mp3");
 }
 
-const render => () {
+const render = () => {
   if(something) {
     ce.sound.playSound(
       ce.assets['sound1'],
@@ -503,11 +503,11 @@ const render => () {
 ```javascript
 const ce = EvanBrosCE.init();
 
-const load => () {
-  ce.loadSound("sound1", "sounds/sound1.png");
+const load = () => {
+  ce.loadSound("sound1", "sounds/sound1.mp3");
 }
 
-const render => () {
+const render = () => {
   if(something) {
     ce.sound.playSound(
       ce.assets['sound1'],
