@@ -38,8 +38,10 @@ The **update** function will be used to perform the update layer of the data tha
 Finally you can use the function **render** to draw on the canvas.
 
 ## EvanBrosCE Main Methods
-### init ([width], [height], [smooth], [style])
+### init (component, [width], [height], [smooth], [style])
 #### Parameters:
+- component (string)
+  - The HTML elemnt that will append the canvas element.
 - width (number):
   - HTML width for the canvas element.
   - Default value: 400

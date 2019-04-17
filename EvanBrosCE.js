@@ -3,26 +3,26 @@ import Sound from './class/sound.js'
 
 class EvanBrosCE {
   constructor() {
-    this.ctx = document.getElementById('canvas_game').getContext("2d");
+    this.ctx = document.getElementById('EvanBrosCE').getContext("2d");
     this.startDate = new Date();
     this.assets = [];
     this.draw = new Draw(this.ctx, this.startDate, this.saveState, this.restoreState);
     this.sound = new Sound;
   }
 
-  static init(width=400, height=400, smooth = false, style='background: black') {
+  static init(component, width=400, height=400, smooth = false, style='background: black') {
     const canvas = {};
     const el = document.createElement('canvas');
     canvas.width = width;
     canvas.height = height;
     canvas.style = style;
     
-    el.setAttribute('id', 'canvas_game');
+    el.setAttribute('id', 'EvanBrosCE');
     el.setAttribute('style', canvas.style);
     el.setAttribute('width', canvas.width)
     el.setAttribute('height', canvas.height)
     
-    document.body.append(el);
+    document.getElementById(component).append(el);
 
     var evanbros = new this;
     evanbros.ctx.imageSmoothingEnabled = smooth;
