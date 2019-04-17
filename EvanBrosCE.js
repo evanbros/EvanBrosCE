@@ -6,7 +6,7 @@ class EvanBrosCE {
     this.ctx = document.getElementById('canvas_game').getContext("2d");
     this.startDate = new Date();
     this.assets = [];
-    this.draw = new Draw(this.ctx, this.startDate, this.saveState(), this.restoreState());
+    this.draw = new Draw(this.ctx, this.startDate, this.saveState, this.restoreState);
     this.sound = new Sound;
   }
 
