@@ -1,6 +1,6 @@
 {
   "name": "evanbrosce",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "description": "A Javascript 2D canvas engine based in HTML Canvas",
   "main": "EvanBrosCE.js",
   "scripts": {
