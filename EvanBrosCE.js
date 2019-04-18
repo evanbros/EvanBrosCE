@@ -76,6 +76,19 @@ class EvanBrosCE {
     var interval = (oldDate - this.date)/1000;
     return Math.round(1/interval*-1);
   }
+
+  createTilemap(size, tiles, margin = false) {
+    var tilemap = [];
+    for(var i = 1; i <= tiles.columns; i++) {
+      for(var j = 1; j <= tiles.rows; j++) {
+        tilemap[`${i},${j}`] = {
+          x: (size.width) * (j-1),
+          y: (size.height) * (i-1)
+        }
+      }
+    }
+    return tilemap;
+  }
 }
 
 export default EvanBrosCE;
