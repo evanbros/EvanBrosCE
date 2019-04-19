@@ -121,6 +121,14 @@ class Draw {
       this.restoreState();
     }
   }
+
+  tilemap(image, tilemap, matrix, coordinates, size) {
+    for(var i = 0; i < matrix[0].length; i++) {
+      for(var j = 0; j < matrix.length; j++) {
+        this.ctx.drawImage(image, tilemap[matrix[j][i]].x , tilemap[matrix[j][i]].y, tilemap[matrix[j][i]].width, tilemap[matrix[j][i]].height, coordinates.x+size.width*i, coordinates.y+size.height*j, size.width, size.height);
+      }
+    }
+  }
     
   sprite(img, coordinates, sprite, frameLimit, timeToNextFrame) {
     if(img.complete) {
