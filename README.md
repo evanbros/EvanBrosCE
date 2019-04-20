@@ -77,7 +77,7 @@ Finally you can use the function **render** to draw on the canvas.
   const fps = ce.calculateFPS();
 ```
 
-## EvanBrosCE Load Methods
+## EvanBrosCE Load And Create Methods
 ### loadImage (name, source)
 #### Parameters:
 - name (string):
@@ -105,6 +105,33 @@ const ce = EvanBrosCE.init();
 
 const load = () => {
   ce.loadSound("image1", "sounds/sound1.mp3");
+}
+```
+
+### createTilemap (name, size, tiles, [margin])
+#### Parameters:
+- name (string):
+	- The name that will be used to associate the tilemap grid created.
+- size (object):
+  - object { width (number), height (number) }
+	- The size in pixels of tiles.
+- tiles (object):
+  - object { rows (number), columns (number) }
+  - Quantity of rows and columns of the tilemap grid.
+- margin:
+  - If the tilemap has margin set the number in pixels.
+  - Default value: 0
+#### Example:
+```javascript
+const ce = EvanBrosCE.init();
+
+const load = () => {
+  ce.loadImage('tilemap', 'tilemap.jpg')
+  ce.createTilemap(
+    'tilemapGrid', 
+    {width: 32, height: 32}, 
+    {rows: 4, columns: 8}
+  );
 }
 ```
 
@@ -239,6 +266,45 @@ const render = () => {
   ce.draw.image(
     ce.assets['image1'],
     {x: 50, y: 50, angle: -20, mirror: true}
+  );
+}
+```
+
+### draw.tilemap (image, tilemap, matrix, coordinates, tileSize)
+#### Parameters:
+- image (assets):
+  - EvanBrosCE.assets['LOADED_IMAGE_NAME']
+- tilemap (assets):
+  - EvanBrosCE.assets['CREATED_TILEMAP']
+- matrix
+  - A two-dimensional array with the key number of tilemap.
+- coordinates (object):
+	- object { x (number) , y (number) }
+- tileSize (object):
+  - object { width (number) , height (number) }
+  - The size of tile that will be render.
+#### Example:
+```javascript
+const ce = EvanBrosCE.init();
+
+let matrix;
+
+const load = () => {
+  ce.loadImage("tilemap", "imgs/tilemap.png");
+  matrix = [
+    [1, 1, 1],
+    [0, 1, 0],
+    [0, 0, 0]
+  ]
+}
+
+const render = () => {
+  game.draw.tilemap(
+    game.assets['tiles'], 
+    game.assets['tilemap'],
+    matrix, 
+    {x: 50, y: 50}, 
+    {width: 32, height: 32}
   );
 }
 ```
@@ -522,5 +588,38 @@ const render = () => {
       30
     );
   }
+}
+```
+
+## EvanBrosCE Events Methods
+### event.getMouseClick ()
+#### Parameters:
+- Void
+#### Returns:
+- object { x (float), y (float) }
+#### Example:
+```javascript
+const ce = EvanBrosCE.init();
+
+let mousePosition;
+
+const load = () => {
+  mousePosition = ce.events.getMouseClick();
+}
+```
+
+### event.getMouseOver ()
+#### Parameters:
+- Void
+#### Returns:
+- object { x (float), y (float) }
+#### Example:
+```javascript
+const ce = EvanBrosCE.init();
+
+let mousePosition;
+
+const load = () => {
+  mousePosition = ce.events.getMouseOver();
 }
 ```

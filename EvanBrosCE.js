@@ -1,13 +1,16 @@
-import Draw from './class/draw.js'
-import Sound from './class/sound.js'
+import Draw from './class/draw.js';
+import Sound from './class/sound.js';
+import Events from './class/events.js';
 
 class EvanBrosCE {
   constructor() {
+    this.canvas = document.getElementById('EvanBrosCE');
     this.ctx = document.getElementById('EvanBrosCE').getContext("2d");
     this.startDate = new Date();
     this.assets = [];
     this.draw = new Draw(this.ctx, this.startDate, this.saveState, this.restoreState);
     this.sound = new Sound;
+    this.events = new Events(this.canvas);
   }
 
   static init(component, width=400, height=400, smooth = false, style='background: black') {

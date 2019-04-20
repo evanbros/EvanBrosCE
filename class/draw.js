@@ -122,10 +122,10 @@ class Draw {
     }
   }
 
-  tilemap(image, tilemap, matrix, coordinates, size) {
+  tilemap(image, tilemap, matrix, coordinates, tileSize) {
     for(var i = 0; i < matrix[0].length; i++) {
       for(var j = 0; j < matrix.length; j++) {
-        this.ctx.drawImage(image, tilemap[matrix[j][i]].x , tilemap[matrix[j][i]].y, tilemap[matrix[j][i]].width, tilemap[matrix[j][i]].height, coordinates.x+size.width*i, coordinates.y+size.height*j, size.width, size.height);
+        this.ctx.drawImage(image, tilemap[matrix[j][i]].x , tilemap[matrix[j][i]].y, tilemap[matrix[j][i]].width, tilemap[matrix[j][i]].height, coordinates.x+tileSize.width*i, coordinates.y+tileSize.height*j, tileSize.width, tileSize.height);
       }
     }
   }
