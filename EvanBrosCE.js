@@ -77,16 +77,16 @@ class EvanBrosCE {
     return Math.round(1/interval*-1);
   }
 
-  createTilemap(name, size, tiles, margin = false) {
+  createTilemap(name, size, tiles, margin = 0) {
     var tilemap = [];
     for(var i = 1; i <= tiles.columns; i++) {
       for(var j = 1; j <= tiles.rows; j++) {
         tilemap.push({
-          x: (size.width) * (j-1),
-          y: (size.height) * (i-1),
+          x: (size.width * (j-1)) + (margin * j),
+          y: (size.height * (i-1)) + (margin * i),
           width: size.width,
           height: size.height
-        });
+        });  
       }
     }
     this.assets[name] = tilemap;
