@@ -8,23 +8,23 @@ class Events {
 		var me = this;
 
 		me.canvas.onclick = function(evt) {
-			me.mousePosition = me.mousePosition(me.canvas, evt);
+			me.mousePosition = me.getMousePosition(me.canvas, evt);
 		}
 		
-		return this.mousePosition;
+		return me.mousePosition;
 	}
 
 	getMouseOver() {
 		var me = this;
 
 		me.canvas.onmousemove = function(evt) {
-			me.mousePosition = me.mousePosition(me.canvas, evt);
+			me.mousePosition = me.getMousePosition(me.canvas, evt);
 		}
 		
-		return this.mousePosition;
+		return me.mousePosition;
 	}
 	
-	mousePosition(canvas, evt) {
+	getMousePosition(canvas, evt) {
 		var rect = canvas.getBoundingClientRect();
 		
 		return {
