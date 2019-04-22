@@ -37,6 +37,13 @@ The **update** function will be used to perform the update layer of the data tha
 
 Finally you can use the function **render** to draw on the canvas.
 
+## EvanBrosCE Properties
+### startDate
+The propertie show the Date that the EvanBrosCE application was initiated.
+
+###FPSlimit
+The FPS control of the application. You can use this for a slow motion in the update/render time.
+
 ## EvanBrosCE Main Methods
 ### init (component, [width], [height], [smooth], [style])
 #### Parameters:
