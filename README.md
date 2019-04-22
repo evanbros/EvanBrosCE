@@ -623,3 +623,32 @@ const load = () => {
   mousePosition = ce.events.getMouseOver();
 }
 ```
+
+### event.configKeyboardKeys (Keys)
+#### Parameters:
+- Keys (object)
+  - object { KEY_NUMBER (object) }
+    - object { press (function), release (function) }
+    - The functions will be call when the button with the especific KEY_NUMBER are pressed or released
+#### Example:
+```javascript
+const ce = EvanBrosCE.init();
+
+let up;
+let down;
+
+const load = () => {
+  ce.events.configKeyboardKeys({
+    38: {press: () => {	up = true;}, release: () => { up = false; }},
+    40: {press: () => {	down = true; }, release: () => { down = false; }},
+  });
+}
+
+const update = () => {
+  if(up) {
+    //Do something
+  } else if(down) {
+    //Do something
+  }
+}
+```

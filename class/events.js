@@ -2,6 +2,7 @@ class Events {
 	constructor(canvas) {
 		this.canvas = canvas;
 		this.mousePosition;
+		this.keyPressed;
 	}
 
 	getMouseClick() {
@@ -22,6 +23,23 @@ class Events {
 		}
 		
 		return me.mousePosition;
+	}
+
+	configKeyboardKeys(keys) {
+		document.addEventListener('keydown', handlerKeyDown, false);
+		document.addEventListener('keyup', handlerKeyUp, false);
+		
+		function handlerKeyDown(evt) {
+			if(evt.keyCode in keys) {
+				keys[evt.keyCode].press();
+			}
+		}
+
+		function handlerKeyUp(evt) {
+			if(evt.keyCode in keys) {
+				keys[evt.keyCode].release();
+			}
+		}
 	}
 	
 	getMousePosition(canvas, evt) {
