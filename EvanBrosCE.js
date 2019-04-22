@@ -7,10 +7,12 @@ class EvanBrosCE {
     this.canvas = document.getElementById('EvanBrosCE');
     this.ctx = document.getElementById('EvanBrosCE').getContext("2d");
     this.startDate = new Date();
+    this.lapseDate = new Date();
     this.assets = [];
     this.draw = new Draw(this.ctx, this.startDate, this.saveState, this.restoreState);
     this.sound = new Sound;
     this.events = new Events(this.canvas);
+    this.fpsLimit = 120;
   }
 
   static init(component, width=400, height=400, smooth = false, style='background: black') {
@@ -38,12 +40,17 @@ class EvanBrosCE {
       load();
       resolve();
     });
-    preload.then(function repeat(){
-      me.cleanCanvas(me.ctx.canvas.width, me.ctx.canvas.height)
-      update();
-      render();
-      me.animation = requestAnimationFrame(repeat);
-    });
+    preload.then(
+      function repeat(){
+        if(me.calculateFrames() < me.fpsLimit) {
+          me.lapseDate = new Date();
+          me.cleanCanvas(me.ctx.canvas.width, me.ctx.canvas.height)
+          update();
+          render();
+        } 
+        me.animation = requestAnimationFrame(repeat);
+      }
+    );
   }
 
   cleanCanvas(width, height){
@@ -74,9 +81,15 @@ class EvanBrosCE {
   }
   
   calculateFPS() {
-    var oldDate = this.date;
-        this.date = new Date();
-    var interval = (oldDate - this.date)/1000;
+    var oldDate = this.dateFPS;
+    this.dateFPS = new Date();
+    var interval = (oldDate - this.dateFPS)/1000;
+    return Math.round(1/interval*-1);
+  }
+  
+  calculateFrames() {
+    this.dateFrames = new Date();
+    var interval = (this.lapseDate - this.dateFrames)/1000;
     return Math.round(1/interval*-1);
   }
 
