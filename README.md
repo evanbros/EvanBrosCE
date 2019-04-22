@@ -41,7 +41,7 @@ Finally you can use the function **render** to draw on the canvas.
 ### startDate
 The propertie show the Date that the EvanBrosCE application was initiated.
 
-###FPSlimit
+### fpsLimit
 The FPS control of the application. You can use this for a slow motion in the update/render time.
 
 ## EvanBrosCE Main Methods
