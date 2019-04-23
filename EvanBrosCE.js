@@ -15,7 +15,7 @@ class EvanBrosCE {
     this.fpsLimit = 120;
   }
 
-  static init(component, width=400, height=400, smooth = false, style='background: black') {
+  static init(component, width=400, height=400, scale=[1,1], smooth = false, style='background: black') {
     const canvas = {};
     const el = document.createElement('canvas');
     canvas.width = width;
@@ -31,6 +31,7 @@ class EvanBrosCE {
 
     var evanbros = new this;
     evanbros.ctx.imageSmoothingEnabled = smooth;
+    evanbros.ctx.scale(scale[0], scale[1]);
     return evanbros;
   }
 
@@ -95,8 +96,8 @@ class EvanBrosCE {
 
   createTilemap(name, size, tiles, margin = 0) {
     var tilemap = [];
-    for(var i = 1; i <= tiles.columns; i++) {
-      for(var j = 1; j <= tiles.rows; j++) {
+    for(var i = 1; i <= tiles.rows; i++) {
+      for(var j = 1; j <= tiles.columns; j++) {
         tilemap.push({
           x: (size.width * (j-1)) + (margin * j),
           y: (size.height * (i-1)) + (margin * i),

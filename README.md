@@ -45,7 +45,7 @@ The propertie show the Date that the EvanBrosCE application was initiated.
 The FPS control of the application. You can use this for a slow motion in the update/render time.
 
 ## EvanBrosCE Main Methods
-### init (component, [width], [height], [smooth], [style])
+### init (component, [width], [height], [scale], [smooth], [style])
 #### Parameters:
 - component (string)
   - The HTML elemnt that will append the canvas element.
@@ -55,6 +55,9 @@ The FPS control of the application. You can use this for a slow motion in the up
 - height (number):
   - HTML height for the canvas element.
   - Default value: 400
+- scale (array):
+  -array [number, number]
+  -Array with two numbers that corresponds to the scale of canvas render;
 - smooth (bool):
   - The pixels of scaled images are smoothed if true value.
   - Default value: false
