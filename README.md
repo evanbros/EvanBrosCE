@@ -382,6 +382,33 @@ const render = () => {
 }
 ```
 
+### draw.transform (a, b, c, d, e, f, fn)
+#### Parameters:
+- a (number) : Horizontal scaling
+- b (number) : Horizontal skewing	
+- c (number) : Vertical skewing
+- d (number) : Vertical scaling
+- e (number) : Horizontal translate
+- f (number) : Vertical translate
+- fn (function)
+  - The function that will be executed when the transformation will be applied
+#### Example:
+```javascript
+const ce = EvanBrosCE.init();
+
+render() {
+  ce.draw.transform(
+    1, 0.5, -0.5, 1, 10, 10,
+    () => {
+      ce.draw.rectangle(
+        {x:0, y:0, width:100, height:100},
+        "fill"
+      )
+    }	
+  );
+}
+```
+
 ## EvanBrosCE Draw Methods (Setters)
 ### draw.setColor (color)
 #### Parameters:

@@ -176,6 +176,13 @@ class Draw {
   rotateScreen(angle) {
     this.ctx.rotate((Math.PI/180)*angle);
   }
+
+  transform(a, b, c, d, e, f, fn) {
+    this.saveState();
+		this.ctx.transform(a, b, c, d, e, f);
+		fn();
+		this.restoreState();
+  }
 }
 
 export default Draw;
