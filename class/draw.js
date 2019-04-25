@@ -138,8 +138,8 @@ class Draw {
         if(frame) {
           sprite.x += sprite.width*frame;
         }
-      var width = coordinates.width || img.width,
-          height = coordinates.height || img.height;
+      var width = coordinates.width || sprite.width,
+          height = coordinates.height || sprite.height;
 
       this.saveState();
       this.translateScreen(coordinates.x+width/2, coordinates.y+height/2);
