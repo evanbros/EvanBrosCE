@@ -258,12 +258,14 @@ const render = () => {
 }
 ```
 
-### draw.image (image, coordinates)
+### draw.image (image, coordinates, [alpha])
 #### Parameters:
 - image (assets):
   - EvanBrosCE.assets['LOADED_IMAGE_NAME']
 - coordinates (object):
 	- object { x (number) , y (number), [width] (number), [height] (number), [mirror] (bool), [angle] (number) }
+- alpha (number)
+  - Default value: 1
 #### Example:
 ```javascript
 const ce = EvanBrosCE.init();
@@ -280,7 +282,7 @@ const render = () => {
 }
 ```
 
-### draw.tilemap (image, tilemap, matrix, coordinates, tileSize)
+### draw.tilemap (image, tilemap, matrix, coordinates, tileSize, [alpha])
 #### Parameters:
 - image (assets):
   - EvanBrosCE.assets['LOADED_IMAGE_NAME']
@@ -293,6 +295,8 @@ const render = () => {
 - tileSize (object):
   - object { width (number) , height (number) }
   - The size of tile that will be render.
+- alpha (number)
+  - Default value: 1
 #### Example:
 ```javascript
 const ce = EvanBrosCE.init();
@@ -319,7 +323,7 @@ const render = () => {
 }
 ```
 
-### draw.sprite (image, coordinates, sprite, frameLimit, timeToNextFrame)
+### draw.sprite (image, coordinates, sprite, frameLimit, timeToNextFrame, [alpha])
 #### Parameters:
 - image (assets):
   - EvanBrosCE.assets['LOADED_SPRITE_NAME']
@@ -333,6 +337,8 @@ const render = () => {
 	- Number of frames on sprite sheet.
 - timeToNextFrame (number)
   - Time in seconds to change the frames on sprite sheet.
+- alpha (number)
+  - Default value: 1
 #### Example:
 ```javascript
 const ce = EvanBrosCE.init();
@@ -352,7 +358,7 @@ const render = () => {
 }
 ```
 
-### draw.pattern (image, coordinates, patternSize, repetition)
+### draw.pattern (image, coordinates, patternSize, repetition, [alpha])
 #### Parameters:
 - image (assets):
   - EvanBrosCE.assets['LOADED_SPRITE_NAME']
@@ -364,6 +370,8 @@ const render = () => {
   - Size of pattern inside of area.
 - repetition (string)
 	- Accept one of this four values: "repeat", "no-repeat", "repeat-x" or "repeat-y".
+- alpha (number)
+  - Default value: 1
 #### Example:
 ```javascript
 const ce = EvanBrosCE.init();

@@ -106,7 +106,7 @@ class Draw {
     }
   }
 
-  image(img, coordinates) {
+  image(img, coordinates, alpha = 1) {
     if(img.complete) {
       var width = coordinates.width || img.width,
       height = coordinates.height || img.height;
@@ -117,20 +117,26 @@ class Draw {
       }
       this.rotateScreen(coordinates.angle);
       this.translateScreen(-(coordinates.x+width/2), -(coordinates.y+height/2));
+      this.ctx.globalAlpha = alpha;
       this.ctx.drawImage(img, coordinates.x, coordinates.y, width, height);
       this.restoreState();
     }
   }
 
-  tilemap(image, tilemap, matrix, coordinates, tileSize) {
-    for(var i = 0; i < matrix[0].length; i++) {
-      for(var j = 0; j < matrix.length; j++) {
-        this.ctx.drawImage(image, tilemap[matrix[j][i]].x , tilemap[matrix[j][i]].y, tilemap[matrix[j][i]].width, tilemap[matrix[j][i]].height, coordinates.x+tileSize.width*i, coordinates.y+tileSize.height*j, tileSize.width, tileSize.height);
+  tilemap(img, tilemap, matrix, coordinates, tileSize, alpha = 1) {
+    if(img.complete) {
+      this.saveState()
+      this.ctx.globalAlpha = alpha;
+      for(var i = 0; i < matrix[0].length; i++) {
+        for(var j = 0; j < matrix.length; j++) {
+          this.ctx.drawImage(img, tilemap[matrix[j][i]].x , tilemap[matrix[j][i]].y, tilemap[matrix[j][i]].width, tilemap[matrix[j][i]].height, coordinates.x+tileSize.width*i, coordinates.y+tileSize.height*j, tileSize.width, tileSize.height);
+        }
       }
+      this.restoreState();
     }
   }
     
-  sprite(img, coordinates, sprite, frameLimit, timeToNextFrame) {
+  sprite(img, coordinates, sprite, frameLimit, timeToNextFrame, alpha = 1) {
     if(img.complete) {
       var nowDate = new Date(),
         timeCounter = Math.round((nowDate - this.startDate)/(1000*timeToNextFrame)),
@@ -148,17 +154,19 @@ class Draw {
       }
       this.rotateScreen(coordinates.angle);
       this.translateScreen(-(coordinates.x+width/2), -(coordinates.y+height/2));
+      this.ctx.globalAlpha = alpha;
       this.ctx.drawImage(img, sprite.x , sprite.y, sprite.width, sprite.height, coordinates.x, coordinates.y, width, height);
       this.restoreState();
     }
   }
 
-  pattern(img, coordinates, patternSize, repetition) {
+  pattern(img, coordinates, patternSize, repetition, alpha = 1) {
     if(img.complete) {
       var patternCanvas = document.createElement('canvas');
       patternCanvas.width = patternSize.width;
       patternCanvas.height = patternSize.height;
-      
+      this.saveState();
+      this.ctx.globalAlpha = alpha;
       var patternCtx = patternCanvas.getContext('2d');
       patternCtx.imageSmoothingEnabled = false;
       patternCtx.drawImage(img, 0, 0, patternSize.width, patternSize.height);
@@ -166,6 +174,7 @@ class Draw {
       this.ctx.translate(coordinates.x, coordinates.y);
       this.ctx.fillRect(0, 0, coordinates.width, coordinates.height);
       this.ctx.translate(-coordinates.x, -coordinates.y);
+      this.restoreState();
     }
   }
 
