@@ -673,8 +673,10 @@ const load = () => {
 #### Parameters:
 - Keys (object)
   - object { KEY_NUMBER (object) }
-    - object { press (function), release (function) }
+    - object { press (function), release (function), pressOnlyOnce (bool) }
     - The functions will be call when the button with the especific KEY_NUMBER are pressed or released
+    - The pressOnlyOnce property will perform just one time the press function when set "_true_";
+      - Default: False
 #### Example:
 ```javascript
 const ce = EvanBrosCE.init();
