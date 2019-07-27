@@ -29,15 +29,29 @@ class Events {
 		document.addEventListener('keydown', handlerKeyDown, false);
 		document.addEventListener('keyup', handlerKeyUp, false);
 		
+		let fired = false;		
+		
 		function handlerKeyDown(evt) {
 			if(evt.keyCode in keys) {
-				keys[evt.keyCode].press();
+				if(keys[evt.keyCode].press) {
+					if(keys[evt.keyCode].pressOnlyOnce){
+						if(!fired) {
+							keys[evt.keyCode].press();
+							fired = true
+						} 
+					} else {
+						keys[evt.keyCode].press();
+					}
+				}
 			}
 		}
 
 		function handlerKeyUp(evt) {
 			if(evt.keyCode in keys) {
-				keys[evt.keyCode].release();
+				fired = false;
+				if(keys[evt.keyCode].release) {
+					keys[evt.keyCode].release();
+				}
 			}
 		}
 	}
