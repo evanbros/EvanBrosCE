@@ -505,7 +505,7 @@ const render = () => {
 const ce = EvanBrosCE.init();
 
 const render = () => {
-  game.draw.setShadow(
+  ce.draw.setShadow(
     {x: 10, y: 10},
     20,
     'red'
