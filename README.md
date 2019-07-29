@@ -17,7 +17,7 @@ In your JS file write something like this:
 ```javascript
 import EvanBrosCE from './node_modules/evanbrosce/EvanBrosCE.js';
 
-const ce = EvanBrosCE.init();
+const ce = EvanBrosCE.init('canvas', 'canvas_container');
 
 const load = () => {
 }
@@ -45,8 +45,10 @@ The propertie show the Date that the EvanBrosCE application was initiated.
 The FPS control of the application. You can use this for a slow motion in the update/render time.
 
 ## EvanBrosCE Main Methods
-### init (component, [width], [height], [scale], [smooth], [style])
+### init (id, component, [width], [height], [scale], [smooth], [style])
 #### Parameters:
+- id (string)
+  -The HTML id for canvas that will be created.
 - component (string)
   - The HTML elemnt that will append the canvas element.
 - width (number):
@@ -66,7 +68,7 @@ The FPS control of the application. You can use this for a slow motion in the up
   - Default value: "background: black"
 #### Example:
 ```javascript
-  const ce = EvanBrosCE.init(800, 500, true, "border: black solid 4px; background: white");
+  const ce = EvanBrosCE.init('canvas', 'canvas_container', 800, 500, true, "border: black solid 4px; background: white");
 ```
 
 ### run (load, update, render)
@@ -118,10 +120,12 @@ const load = () => {
 }
 ```
 
-### createTilemap (name, size, tiles, [margin])
+### createTilemap (name, matrix, size, tiles, [margin])
 #### Parameters:
 - name (string):
 	- The name that will be used to associate the tilemap grid created.
+- matrix (array):
+  - A two-dimensional array with the key number of tilemap.
 - size (object):
   - object { width (number), height (number) }
 	- The size in pixels of tiles.
@@ -131,6 +135,9 @@ const load = () => {
 - margin:
   - If the tilemap has margin set the number in pixels.
   - Default value: 0
+#### Returns:
+- object { type (number), row (number), col (number), position (object) }
+  - position { xI (number), xF (number), yI (number), yF (number) }
 #### Example:
 ```javascript
 const ce = EvanBrosCE.init();
@@ -282,14 +289,12 @@ const render = () => {
 }
 ```
 
-### draw.tilemap (image, tilemap, matrix, coordinates, tileSize, [alpha])
+### draw.tilemap (image, tilemap, coordinates, tileSize, [alpha])
 #### Parameters:
 - image (assets):
   - EvanBrosCE.assets['LOADED_IMAGE_NAME']
 - tilemap (assets):
   - EvanBrosCE.assets['CREATED_TILEMAP']
-- matrix
-  - A two-dimensional array with the key number of tilemap.
 - coordinates (object):
 	- object { x (number) , y (number) }
 - tileSize (object):

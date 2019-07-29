@@ -109,7 +109,7 @@ class Draw {
   image(img, coordinates, alpha = 1) {
     if(img.complete) {
       var width = coordinates.width || img.width,
-      height = coordinates.height || img.height;
+          height = coordinates.height || img.height;
       this.saveState();
       this.translateScreen(coordinates.x+width/2, coordinates.y+height/2);
       if(coordinates.mirror) {
@@ -123,13 +123,15 @@ class Draw {
     }
   }
 
-  tilemap(img, tilemap, matrix, coordinates, tileSize, alpha = 1) {
+  tilemap(img, tilemap, coordinates, tileSize, alpha = 1) {
+    var tiles = tilemap[0];
+    var matrix = tilemap[1];
     if(img.complete) {
       this.saveState()
       this.ctx.globalAlpha = alpha;
       for(var i = 0; i < matrix[0].length; i++) {
         for(var j = 0; j < matrix.length; j++) {
-          this.ctx.drawImage(img, tilemap[matrix[j][i]].x , tilemap[matrix[j][i]].y, tilemap[matrix[j][i]].width, tilemap[matrix[j][i]].height, coordinates.x+tileSize.width*i, coordinates.y+tileSize.height*j, tileSize.width, tileSize.height);
+          this.ctx.drawImage(img, tiles[matrix[j][i]].x , tiles[matrix[j][i]].y, tiles[matrix[j][i]].width, tiles[matrix[j][i]].height, coordinates.x+tileSize.width*i, coordinates.y+tileSize.height*j, tileSize.width, tileSize.height);
         }
       }
       this.restoreState();
