@@ -318,9 +318,9 @@ const load = () => {
 }
 
 const render = () => {
-  game.draw.tilemap(
-    game.assets['tiles'], 
-    game.assets['tilemap'],
+  ce.draw.tilemap(
+    ce.assets['tiles'], 
+    ce.assets['tilemap'],
     matrix, 
     {x: 50, y: 50}, 
     {width: 32, height: 32}
@@ -523,7 +523,7 @@ const render = () => {
 const ce = EvanBrosCE.init();
 
 const render = () => {
-  game.draw.setShadow(
+  ce.draw.setShadow(
     {x: 10, y: 10},
     20,
     'red'
@@ -531,9 +531,9 @@ const render = () => {
   
   ce.draw.arc({x: 250, y: 250}, 100, 'fill');
   
-  game.draw.unsetShadow();
+  ce.draw.unsetShadow();
 
-  game.draw.rectangle({x: 400, y: 150, width: 200, height: 200}, 'fill');
+  ce.draw.rectangle({x: 400, y: 150, width: 200, height: 200}, 'fill');
 }
 ```
 
