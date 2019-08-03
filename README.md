@@ -328,7 +328,7 @@ const render = () => {
 }
 ```
 
-### draw.sprite (image, coordinates, sprite, frameLimit, timeToNextFrame, [alpha])
+### draw.sprite (image, coordinates, sprite, initialFrame, frameRange, timeToNextFrame, [alpha])
 #### Parameters:
 - image (assets):
   - EvanBrosCE.assets['LOADED_SPRITE_NAME']
@@ -338,8 +338,11 @@ const render = () => {
   - object { x (number), y (number), width (number), height (number) }
   - The position and size in sprite sheet of the sprites.
   - The width and height must respect the original pixels size of the image.
-- frameLimit (number)
-	- Number of frames on sprite sheet.
+- initialFrame (number)
+  - Initial frame number to show.
+  - All sprite sheets init with "0" as the first element.
+- frameRange (number)
+	- Range number on sprite sheet that will be show.
 - timeToNextFrame (number)
   - Time in seconds to change the frames on sprite sheet.
 - alpha (number)
