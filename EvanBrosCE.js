@@ -99,7 +99,7 @@ class EvanBrosCE {
 
     for(var i = 0; i < matrix[0].length; i++) {
       for(var j = 0; j < matrix.length; j++) {
-        tileReturn.push({
+        tileReturn[j+'-'+i] = {
           type: matrix[j][i],
           row: j, 
           col: i, 
@@ -109,7 +109,7 @@ class EvanBrosCE {
             yI: size.height*(j),
             yF: size.height*(j+1)-1
           }
-        });
+        };
       }
     }
 
