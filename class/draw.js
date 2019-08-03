@@ -138,13 +138,13 @@ class Draw {
     }
   }
     
-  sprite(img, coordinates, sprite, frameLimit, timeToNextFrame, alpha = 1) {
+  sprite(img, coordinates, sprite, initialFrame, frameRange, timeToNextFrame, alpha = 1) {
     if(img.complete) {
       var nowDate = new Date(),
         timeCounter = Math.round((nowDate - this.startDate)/(1000*timeToNextFrame)),
-        frame = (timeCounter % frameLimit);
+        frame = (timeCounter % frameRange)+1;
         if(frame) {
-          sprite.x += sprite.width*frame;
+          sprite.x += sprite.width*(frame+initialFrame-1);
         }
       var width = coordinates.width || sprite.width,
           height = coordinates.height || sprite.height;
