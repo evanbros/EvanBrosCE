@@ -136,7 +136,7 @@ const load = () => {
   - If the tilemap has margin set the number in pixels.
   - Default value: 0
 #### Returns:
-- object { type (number), row (number), col (number), position (object) }
+- Array of Objects [ {type (number), row (number), col (number), position (object)} ]
   - position { xI (number), xF (number), yI (number), yF (number) }
 #### Example:
 ```javascript
@@ -144,7 +144,8 @@ const ce = EvanBrosCE.init();
 
 const load = () => {
   ce.loadImage('tilemap', 'tilemap.jpg')
-  ce.createTilemap(
+
+  const tileGrid = ce.createTilemap(
     'tilemapGrid', 
     {width: 32, height: 32}, 
     {rows: 4, columns: 8}
@@ -360,6 +361,7 @@ const render = () => {
     ce.assets['sprite1'],
     {x: 10, y: 10},
     {x: 0, y: 0, width: 60, height: 60},
+    0,
     4,
     0.5
   );
