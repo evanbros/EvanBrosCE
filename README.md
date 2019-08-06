@@ -329,8 +329,10 @@ const render = () => {
 }
 ```
 
-### draw.sprite (image, coordinates, sprite, initialFrame, frameRange, timeToNextFrame, [alpha])
+### draw.sprite (name, image, coordinates, sprite, initialFrame, frameRange, timeToNextFrame, [alpha])
 #### Parameters:
+- name (string)
+  - The name of sprite.
 - image (assets):
   - EvanBrosCE.assets['LOADED_SPRITE_NAME']
 - coordinates (object):
@@ -348,6 +350,8 @@ const render = () => {
   - Time in seconds to change the frames on sprite sheet.
 - alpha (number)
   - Default value: 1
+#### Returns:
+- object { name (string), frame (number), looping (bool) }
 #### Example:
 ```javascript
 const ce = EvanBrosCE.init();
@@ -357,7 +361,8 @@ const load = () => {
 }
 
 const render = () => {
-  ce.draw.sprite(
+  const sprite = ce.draw.sprite(
+    'my_sprite',
     ce.assets['sprite1'],
     {x: 10, y: 10},
     {x: 0, y: 0, width: 60, height: 60},
