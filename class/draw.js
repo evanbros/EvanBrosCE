@@ -1,8 +1,8 @@
 class Draw {
-  constructor(ctx, startDate, save, restore) {
+  constructor(ctx, save, restore) {
     this.ctx = ctx;
     this.color = 'white';
-    this.startDate = startDate;
+    this.startSprite;
     this.saveState = save;
     this.restoreState = restore;
   }
@@ -138,14 +138,27 @@ class Draw {
     }
   }
     
-  sprite(img, coordinates, sprite, initialFrame, frameRange, timeToNextFrame, alpha = 1) {
+  sprite(name, img, coordinates, sprite, initialFrame, frameRange, timeToNextFrame, alpha = 1) {
     if(img.complete) {
+      if(name != this.oldName) {
+        this.startSprite = new Date();
+        this.looping = false;
+      }
+      
+      this.oldName = name;
+      
       var nowDate = new Date(),
-        timeCounter = Math.round((nowDate - this.startDate)/(1000*timeToNextFrame)),
-        frame = (timeCounter % frameRange)+1;
-        if(frame) {
-          sprite.x += sprite.width*(frame+initialFrame-1);
-        }
+          timeCounter = Math.floor((nowDate - this.startSprite)/(1000*timeToNextFrame)),
+          frame = (timeCounter % frameRange)+1;
+      
+      if(timeCounter == frameRange) {
+        this.looping = true;
+      }
+      
+      if(frame) {
+        sprite.x += sprite.width*(frame+initialFrame-1);
+      }
+
       var width = coordinates.width || sprite.width,
           height = coordinates.height || sprite.height;
 
@@ -160,6 +173,7 @@ class Draw {
       this.ctx.drawImage(img, sprite.x , sprite.y, sprite.width, sprite.height, coordinates.x, coordinates.y, width, height);
       this.restoreState();
     }
+    return { name: name, frame: frame , looping: this.looping};
   }
 
   pattern(img, coordinates, patternSize, repetition, alpha = 1) {
