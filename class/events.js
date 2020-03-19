@@ -36,8 +36,8 @@ class Events {
 				if(keys[evt.keyCode].press) {
 					if(keys[evt.keyCode].pressOnlyOnce){
 						if(!fired) {
-							keys[evt.keyCode].press();
 							fired = true
+							keys[evt.keyCode].press();
 						} 
 					} else {
 						keys[evt.keyCode].press();
